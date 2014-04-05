@@ -7,9 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "JMSAddition.h"
 
 @interface CP130_HW1Tests : XCTestCase
-
+@property (strong, nonatomic)JMSAddition *addition;
 @end
 
 @implementation CP130_HW1Tests
@@ -17,7 +18,10 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    self.addition = [[JMSAddition alloc] init];
+    self.addition.numA = 11;
+    self.addition.numB = 33;
 }
 
 - (void)tearDown
@@ -26,9 +30,8 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testSumOfAAndB
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertTrue(([self.addition sumOfAAndB] == 44), @"The sums are working correctly");
 }
-
 @end

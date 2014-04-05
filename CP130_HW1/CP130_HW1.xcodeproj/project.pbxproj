@@ -21,6 +21,7 @@
 		933979A018F073DA00891457 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9339798218F073D900891457 /* UIKit.framework */; };
 		933979A818F073DA00891457 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 933979A618F073DA00891457 /* InfoPlist.strings */; };
 		933979AA18F073DA00891457 /* CP130_HW1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933979A918F073DA00891457 /* CP130_HW1Tests.m */; };
+		933979B518F0741400891457 /* JMSAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 933979B418F0741400891457 /* JMSAddition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		933979A518F073DA00891457 /* CP130_HW1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CP130_HW1Tests-Info.plist"; sourceTree = "<group>"; };
 		933979A718F073DA00891457 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		933979A918F073DA00891457 /* CP130_HW1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CP130_HW1Tests.m; sourceTree = "<group>"; };
+		933979B318F0741400891457 /* JMSAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSAddition.h; sourceTree = "<group>"; };
+		933979B418F0741400891457 /* JMSAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSAddition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				9339799018F073D900891457 /* Main.storyboard */,
 				9339799318F073D900891457 /* JMSViewController.h */,
 				9339799418F073D900891457 /* JMSViewController.m */,
+				933979B318F0741400891457 /* JMSAddition.h */,
+				933979B418F0741400891457 /* JMSAddition.m */,
 				9339799618F073D900891457 /* Images.xcassets */,
 				9339798518F073D900891457 /* Supporting Files */,
 			);
@@ -252,6 +257,7 @@
 			files = (
 				9339799518F073D900891457 /* JMSViewController.m in Sources */,
 				9339798B18F073D900891457 /* main.m in Sources */,
+				933979B518F0741400891457 /* JMSAddition.m in Sources */,
 				9339798F18F073D900891457 /* JMSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
