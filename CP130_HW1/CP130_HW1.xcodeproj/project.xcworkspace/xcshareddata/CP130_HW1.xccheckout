@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>28EE0939-1E69-43FB-AC6E-54BB2DB41E29</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CP130_HW1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>964B92E9-E8E0-472D-816B-9E724CF4D5B1</key>
+		<string>https://github.com/jsorge/CP130_Homework.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CP130_HW1/CP130_HW1.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>964B92E9-E8E0-472D-816B-9E724CF4D5B1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jsorge/CP130_Homework.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>964B92E9-E8E0-472D-816B-9E724CF4D5B1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>964B92E9-E8E0-472D-816B-9E724CF4D5B1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CP130</string>
+		</dict>
+	</array>
+</dict>
+</plist>
