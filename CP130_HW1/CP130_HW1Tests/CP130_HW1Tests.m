@@ -32,6 +32,6 @@
 
 - (void)testSumOfAAndB
 {
-    XCTAssertTrue(([self.addition sumOfAAndB] == 44), @"The sums are working correctly");
+    XCTAssertTrue(([self.addition sumOfAAndB] == 44), @"The sums are not working correctly");
 }
 @end
