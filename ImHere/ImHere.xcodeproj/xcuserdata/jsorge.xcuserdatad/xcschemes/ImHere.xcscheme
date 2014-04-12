@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "933979C718F512AC00891457"
                BuildableName = "ImHere.app"
-               BlueprintName = "ImHere"
+               BlueprintName = "I&apos;m Here"
                ReferencedContainer = "container:ImHere.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "933979C718F512AC00891457"
             BuildableName = "ImHere.app"
-            BlueprintName = "ImHere"
+            BlueprintName = "I&apos;m Here"
             ReferencedContainer = "container:ImHere.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "933979C718F512AC00891457"
             BuildableName = "ImHere.app"
-            BlueprintName = "ImHere"
+            BlueprintName = "I&apos;m Here"
             ReferencedContainer = "container:ImHere.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "933979C718F512AC00891457"
             BuildableName = "ImHere.app"
-            BlueprintName = "ImHere"
+            BlueprintName = "I&apos;m Here"
             ReferencedContainer = "container:ImHere.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

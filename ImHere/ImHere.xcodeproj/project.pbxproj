@@ -155,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		933979C718F512AC00891457 /* ImHere */ = {
+		933979C718F512AC00891457 /* I'm Here */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 933979FA18F512AC00891457 /* Build configuration list for PBXNativeTarget "ImHere" */;
+			buildConfigurationList = 933979FA18F512AC00891457 /* Build configuration list for PBXNativeTarget "I'm Here" */;
 			buildPhases = (
 				933979C418F512AC00891457 /* Sources */,
 				933979C518F512AC00891457 /* Frameworks */,
@@ -167,7 +167,7 @@
 			);
 			dependencies = (
 			);
-			name = ImHere;
+			name = "I'm Here";
 			productName = ImHere;
 			productReference = 933979C818F512AC00891457 /* ImHere.app */;
 			productType = "com.apple.product-type.application";
@@ -218,7 +218,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				933979C718F512AC00891457 /* ImHere */,
+				933979C718F512AC00891457 /* I'm Here */,
 				933979E818F512AC00891457 /* ImHereTests */,
 			);
 		};
@@ -269,7 +269,7 @@
 /* Begin PBXTargetDependency section */
 		933979EF18F512AC00891457 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 933979C718F512AC00891457 /* ImHere */;
+			target = 933979C718F512AC00891457 /* I'm Here */;
 			targetProxy = 933979EE18F512AC00891457 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -450,7 +450,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		933979FA18F512AC00891457 /* Build configuration list for PBXNativeTarget "ImHere" */ = {
+		933979FA18F512AC00891457 /* Build configuration list for PBXNativeTarget "I'm Here" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				933979FB18F512AC00891457 /* Debug */,
