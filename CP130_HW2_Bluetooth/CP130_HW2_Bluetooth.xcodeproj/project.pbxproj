@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93C58F0B190429B000A51971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0A190429B000A51971 /* Foundation.framework */; };
+		93C58F0D190429B000A51971 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0C190429B000A51971 /* CoreGraphics.framework */; };
+		93C58F0F190429B100A51971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0E190429B100A51971 /* UIKit.framework */; };
+		93C58F15190429B100A51971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F13190429B100A51971 /* InfoPlist.strings */; };
+		93C58F17190429B100A51971 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F16190429B100A51971 /* main.m */; };
+		93C58F1B190429B100A51971 /* JMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F1A190429B100A51971 /* JMSAppDelegate.m */; };
+		93C58F1E190429B100A51971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F1C190429B100A51971 /* Main.storyboard */; };
+		93C58F21190429B100A51971 /* JMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F20190429B100A51971 /* JMSViewController.m */; };
+		93C58F23190429B100A51971 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F22190429B100A51971 /* Images.xcassets */; };
+		93C58F2A190429B100A51971 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F29190429B100A51971 /* XCTest.framework */; };
+		93C58F2B190429B100A51971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0A190429B000A51971 /* Foundation.framework */; };
+		93C58F2C190429B100A51971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0E190429B100A51971 /* UIKit.framework */; };
+		93C58F34190429B100A51971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F32190429B100A51971 /* InfoPlist.strings */; };
+		93C58F36190429B100A51971 /* CP130_HW2_BluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F35190429B100A51971 /* CP130_HW2_BluetoothTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93C58F2D190429B100A51971 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93C58EFF190429B000A51971 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C58F06190429B000A51971;
+			remoteInfo = CP130_HW2_Bluetooth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93C58F07190429B000A51971 /* CP130_HW2_Bluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP130_HW2_Bluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C58F0A190429B000A51971 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93C58F0C190429B000A51971 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93C58F0E190429B100A51971 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93C58F12190429B100A51971 /* CP130_HW2_Bluetooth-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CP130_HW2_Bluetooth-Info.plist"; sourceTree = "<group>"; };
+		93C58F14190429B100A51971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93C58F16190429B100A51971 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93C58F18190429B100A51971 /* CP130_HW2_Bluetooth-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CP130_HW2_Bluetooth-Prefix.pch"; sourceTree = "<group>"; };
+		93C58F19190429B100A51971 /* JMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSAppDelegate.h; sourceTree = "<group>"; };
+		93C58F1A190429B100A51971 /* JMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSAppDelegate.m; sourceTree = "<group>"; };
+		93C58F1D190429B100A51971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93C58F1F190429B100A51971 /* JMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSViewController.h; sourceTree = "<group>"; };
+		93C58F20190429B100A51971 /* JMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSViewController.m; sourceTree = "<group>"; };
+		93C58F22190429B100A51971 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		93C58F28190429B100A51971 /* CP130_HW2_BluetoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP130_HW2_BluetoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C58F29190429B100A51971 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93C58F31190429B100A51971 /* CP130_HW2_BluetoothTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CP130_HW2_BluetoothTests-Info.plist"; sourceTree = "<group>"; };
+		93C58F33190429B100A51971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93C58F35190429B100A51971 /* CP130_HW2_BluetoothTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CP130_HW2_BluetoothTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93C58F04190429B000A51971 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C58F0D190429B000A51971 /* CoreGraphics.framework in Frameworks */,
+				93C58F0F190429B100A51971 /* UIKit.framework in Frameworks */,
+				93C58F0B190429B000A51971 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C58F25190429B100A51971 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C58F2A190429B100A51971 /* XCTest.framework in Frameworks */,
+				93C58F2C190429B100A51971 /* UIKit.framework in Frameworks */,
+				93C58F2B190429B100A51971 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93C58EFE190429B000A51971 = {
+			isa = PBXGroup;
+			children = (
+				93C58F10190429B100A51971 /* CP130_HW2_Bluetooth */,
+				93C58F2F190429B100A51971 /* CP130_HW2_BluetoothTests */,
+				93C58F09190429B000A51971 /* Frameworks */,
+				93C58F08190429B000A51971 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93C58F08190429B000A51971 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93C58F07190429B000A51971 /* CP130_HW2_Bluetooth.app */,
+				93C58F28190429B100A51971 /* CP130_HW2_BluetoothTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93C58F09190429B000A51971 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93C58F0A190429B000A51971 /* Foundation.framework */,
+				93C58F0C190429B000A51971 /* CoreGraphics.framework */,
+				93C58F0E190429B100A51971 /* UIKit.framework */,
+				93C58F29190429B100A51971 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93C58F10190429B100A51971 /* CP130_HW2_Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				93C58F19190429B100A51971 /* JMSAppDelegate.h */,
+				93C58F1A190429B100A51971 /* JMSAppDelegate.m */,
+				93C58F1C190429B100A51971 /* Main.storyboard */,
+				93C58F1F190429B100A51971 /* JMSViewController.h */,
+				93C58F20190429B100A51971 /* JMSViewController.m */,
+				93C58F22190429B100A51971 /* Images.xcassets */,
+				93C58F11190429B100A51971 /* Supporting Files */,
+			);
+			path = CP130_HW2_Bluetooth;
+			sourceTree = "<group>";
+		};
+		93C58F11190429B100A51971 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93C58F12190429B100A51971 /* CP130_HW2_Bluetooth-Info.plist */,
+				93C58F13190429B100A51971 /* InfoPlist.strings */,
+				93C58F16190429B100A51971 /* main.m */,
+				93C58F18190429B100A51971 /* CP130_HW2_Bluetooth-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93C58F2F190429B100A51971 /* CP130_HW2_BluetoothTests */ = {
+			isa = PBXGroup;
+			children = (
+				93C58F35190429B100A51971 /* CP130_HW2_BluetoothTests.m */,
+				93C58F30190429B100A51971 /* Supporting Files */,
+			);
+			path = CP130_HW2_BluetoothTests;
+			sourceTree = "<group>";
+		};
+		93C58F30190429B100A51971 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93C58F31190429B100A51971 /* CP130_HW2_BluetoothTests-Info.plist */,
+				93C58F32190429B100A51971 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93C58F06190429B000A51971 /* CP130_HW2_Bluetooth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C58F39190429B100A51971 /* Build configuration list for PBXNativeTarget "CP130_HW2_Bluetooth" */;
+			buildPhases = (
+				93C58F03190429B000A51971 /* Sources */,
+				93C58F04190429B000A51971 /* Frameworks */,
+				93C58F05190429B000A51971 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CP130_HW2_Bluetooth;
+			productName = CP130_HW2_Bluetooth;
+			productReference = 93C58F07190429B000A51971 /* CP130_HW2_Bluetooth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93C58F27190429B100A51971 /* CP130_HW2_BluetoothTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C58F3C190429B100A51971 /* Build configuration list for PBXNativeTarget "CP130_HW2_BluetoothTests" */;
+			buildPhases = (
+				93C58F24190429B100A51971 /* Sources */,
+				93C58F25190429B100A51971 /* Frameworks */,
+				93C58F26190429B100A51971 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93C58F2E190429B100A51971 /* PBXTargetDependency */,
+			);
+			name = CP130_HW2_BluetoothTests;
+			productName = CP130_HW2_BluetoothTests;
+			productReference = 93C58F28190429B100A51971 /* CP130_HW2_BluetoothTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93C58EFF190429B000A51971 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JMS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = jsorge;
+				TargetAttributes = {
+					93C58F27190429B100A51971 = {
+						TestTargetID = 93C58F06190429B000A51971;
+					};
+				};
+			};
+			buildConfigurationList = 93C58F02190429B000A51971 /* Build configuration list for PBXProject "CP130_HW2_Bluetooth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93C58EFE190429B000A51971;
+			productRefGroup = 93C58F08190429B000A51971 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93C58F06190429B000A51971 /* CP130_HW2_Bluetooth */,
+				93C58F27190429B100A51971 /* CP130_HW2_BluetoothTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93C58F05190429B000A51971 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C58F23190429B100A51971 /* Images.xcassets in Resources */,
+				93C58F15190429B100A51971 /* InfoPlist.strings in Resources */,
+				93C58F1E190429B100A51971 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C58F26190429B100A51971 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C58F34190429B100A51971 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93C58F03190429B000A51971 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C58F21190429B100A51971 /* JMSViewController.m in Sources */,
+				93C58F17190429B100A51971 /* main.m in Sources */,
+				93C58F1B190429B100A51971 /* JMSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C58F24190429B100A51971 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C58F36190429B100A51971 /* CP130_HW2_BluetoothTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93C58F2E190429B100A51971 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93C58F06190429B000A51971 /* CP130_HW2_Bluetooth */;
+			targetProxy = 93C58F2D190429B100A51971 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93C58F13190429B100A51971 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C58F14190429B100A51971 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		93C58F1C190429B100A51971 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C58F1D190429B100A51971 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		93C58F32190429B100A51971 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C58F33190429B100A51971 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93C58F37190429B100A51971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		93C58F38190429B100A51971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93C58F3A190429B100A51971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CP130_HW2_Bluetooth/CP130_HW2_Bluetooth-Prefix.pch";
+				INFOPLIST_FILE = "CP130_HW2_Bluetooth/CP130_HW2_Bluetooth-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		93C58F3B190429B100A51971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CP130_HW2_Bluetooth/CP130_HW2_Bluetooth-Prefix.pch";
+				INFOPLIST_FILE = "CP130_HW2_Bluetooth/CP130_HW2_Bluetooth-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		93C58F3D190429B100A51971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CP130_HW2_Bluetooth.app/CP130_HW2_Bluetooth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CP130_HW2_Bluetooth/CP130_HW2_Bluetooth-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CP130_HW2_BluetoothTests/CP130_HW2_BluetoothTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		93C58F3E190429B100A51971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CP130_HW2_Bluetooth.app/CP130_HW2_Bluetooth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CP130_HW2_Bluetooth/CP130_HW2_Bluetooth-Prefix.pch";
+				INFOPLIST_FILE = "CP130_HW2_BluetoothTests/CP130_HW2_BluetoothTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93C58F02190429B000A51971 /* Build configuration list for PBXProject "CP130_HW2_Bluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C58F37190429B100A51971 /* Debug */,
+				93C58F38190429B100A51971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93C58F39190429B100A51971 /* Build configuration list for PBXNativeTarget "CP130_HW2_Bluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C58F3A190429B100A51971 /* Debug */,
+				93C58F3B190429B100A51971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		93C58F3C190429B100A51971 /* Build configuration list for PBXNativeTarget "CP130_HW2_BluetoothTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C58F3D190429B100A51971 /* Debug */,
+				93C58F3E190429B100A51971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93C58EFF190429B000A51971 /* Project object */;
+}
