@@ -14,13 +14,17 @@
 		93C58F17190429B100A51971 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F16190429B100A51971 /* main.m */; };
 		93C58F1B190429B100A51971 /* JMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F1A190429B100A51971 /* JMSAppDelegate.m */; };
 		93C58F1E190429B100A51971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F1C190429B100A51971 /* Main.storyboard */; };
-		93C58F21190429B100A51971 /* JMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F20190429B100A51971 /* JMSViewController.m */; };
 		93C58F23190429B100A51971 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F22190429B100A51971 /* Images.xcassets */; };
 		93C58F2A190429B100A51971 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F29190429B100A51971 /* XCTest.framework */; };
 		93C58F2B190429B100A51971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0A190429B000A51971 /* Foundation.framework */; };
 		93C58F2C190429B100A51971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F0E190429B100A51971 /* UIKit.framework */; };
 		93C58F34190429B100A51971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F32190429B100A51971 /* InfoPlist.strings */; };
 		93C58F36190429B100A51971 /* CP130_HW2_BluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F35190429B100A51971 /* CP130_HW2_BluetoothTests.m */; };
+		93C58F41190429C000A51971 /* JMSBTPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F40190429C000A51971 /* JMSBTPeripheral.m */; };
+		93C58F4419042A1100A51971 /* JMSBTCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F4319042A1100A51971 /* JMSBTCentral.m */; };
+		93C58F471904365D00A51971 /* JMSCentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F461904365D00A51971 /* JMSCentralViewController.m */; };
+		93C58F4A1904366900A51971 /* JMSPeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F491904366900A51971 /* JMSPeripheralViewController.m */; };
+		93C58F4D190437A200A51971 /* JMSBluetoothStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F4C190437A200A51971 /* JMSBluetoothStrings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +49,22 @@
 		93C58F19190429B100A51971 /* JMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSAppDelegate.h; sourceTree = "<group>"; };
 		93C58F1A190429B100A51971 /* JMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSAppDelegate.m; sourceTree = "<group>"; };
 		93C58F1D190429B100A51971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		93C58F1F190429B100A51971 /* JMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSViewController.h; sourceTree = "<group>"; };
-		93C58F20190429B100A51971 /* JMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSViewController.m; sourceTree = "<group>"; };
 		93C58F22190429B100A51971 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93C58F28190429B100A51971 /* CP130_HW2_BluetoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP130_HW2_BluetoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C58F29190429B100A51971 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93C58F31190429B100A51971 /* CP130_HW2_BluetoothTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CP130_HW2_BluetoothTests-Info.plist"; sourceTree = "<group>"; };
 		93C58F33190429B100A51971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93C58F35190429B100A51971 /* CP130_HW2_BluetoothTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CP130_HW2_BluetoothTests.m; sourceTree = "<group>"; };
+		93C58F3F190429C000A51971 /* JMSBTPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSBTPeripheral.h; sourceTree = "<group>"; };
+		93C58F40190429C000A51971 /* JMSBTPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSBTPeripheral.m; sourceTree = "<group>"; };
+		93C58F4219042A1100A51971 /* JMSBTCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSBTCentral.h; sourceTree = "<group>"; };
+		93C58F4319042A1100A51971 /* JMSBTCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSBTCentral.m; sourceTree = "<group>"; };
+		93C58F451904365D00A51971 /* JMSCentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSCentralViewController.h; sourceTree = "<group>"; };
+		93C58F461904365D00A51971 /* JMSCentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSCentralViewController.m; sourceTree = "<group>"; };
+		93C58F481904366900A51971 /* JMSPeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSPeripheralViewController.h; sourceTree = "<group>"; };
+		93C58F491904366900A51971 /* JMSPeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSPeripheralViewController.m; sourceTree = "<group>"; };
+		93C58F4B190437A200A51971 /* JMSBluetoothStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSBluetoothStrings.h; sourceTree = "<group>"; };
+		93C58F4C190437A200A51971 /* JMSBluetoothStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSBluetoothStrings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +127,16 @@
 				93C58F19190429B100A51971 /* JMSAppDelegate.h */,
 				93C58F1A190429B100A51971 /* JMSAppDelegate.m */,
 				93C58F1C190429B100A51971 /* Main.storyboard */,
-				93C58F1F190429B100A51971 /* JMSViewController.h */,
-				93C58F20190429B100A51971 /* JMSViewController.m */,
+				93C58F451904365D00A51971 /* JMSCentralViewController.h */,
+				93C58F461904365D00A51971 /* JMSCentralViewController.m */,
+				93C58F481904366900A51971 /* JMSPeripheralViewController.h */,
+				93C58F491904366900A51971 /* JMSPeripheralViewController.m */,
+				93C58F3F190429C000A51971 /* JMSBTPeripheral.h */,
+				93C58F40190429C000A51971 /* JMSBTPeripheral.m */,
+				93C58F4219042A1100A51971 /* JMSBTCentral.h */,
+				93C58F4319042A1100A51971 /* JMSBTCentral.m */,
+				93C58F4B190437A200A51971 /* JMSBluetoothStrings.h */,
+				93C58F4C190437A200A51971 /* JMSBluetoothStrings.m */,
 				93C58F22190429B100A51971 /* Images.xcassets */,
 				93C58F11190429B100A51971 /* Supporting Files */,
 			);
@@ -250,9 +270,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93C58F21190429B100A51971 /* JMSViewController.m in Sources */,
+				93C58F471904365D00A51971 /* JMSCentralViewController.m in Sources */,
+				93C58F41190429C000A51971 /* JMSBTPeripheral.m in Sources */,
 				93C58F17190429B100A51971 /* main.m in Sources */,
+				93C58F4A1904366900A51971 /* JMSPeripheralViewController.m in Sources */,
 				93C58F1B190429B100A51971 /* JMSAppDelegate.m in Sources */,
+				93C58F4D190437A200A51971 /* JMSBluetoothStrings.m in Sources */,
+				93C58F4419042A1100A51971 /* JMSBTCentral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

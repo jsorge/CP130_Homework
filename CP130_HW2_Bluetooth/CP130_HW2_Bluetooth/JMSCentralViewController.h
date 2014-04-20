@@ -1,5 +1,5 @@
 //
-//  JMSViewController.h
+//  JMSCentralViewController.h
 //  CP130_HW2_Bluetooth
 //
 //  Created by Jared Sorge on 4/20/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JMSViewController : UIViewController
+@interface JMSCentralViewController : UIViewController
 
 @end

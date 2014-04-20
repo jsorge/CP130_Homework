@@ -10,11 +10,9 @@
 
 @protocol JMSBTPeripheralDelegate;
 
-extern NSString *const SERVICE_ID;
-extern NSString *const CHARACTERISTIC_ID;
-
 @interface JMSBTPeripheral : NSObject
-- (instancetype)initWithDelegate:(id<JMSBTPeripheralDelegate>)delegate;
+@property (strong, nonatomic)NSString *serviceID;
+- (instancetype)initWithDelegate:(id<JMSBTPeripheralDelegate>)delegate serviceID:(NSString *)serviceID characteristicID:(NSString *)characteristicID;
 - (void)broadcastData:(NSString *)data;
 @end
 

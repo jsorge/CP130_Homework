@@ -14,13 +14,13 @@
 		933979D818F512AC00891457 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 933979D718F512AC00891457 /* main.m */; };
 		933979DC18F512AC00891457 /* JMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 933979DB18F512AC00891457 /* JMSAppDelegate.m */; };
 		933979DF18F512AC00891457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933979DD18F512AC00891457 /* Main.storyboard */; };
-		933979E218F512AC00891457 /* JMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933979E118F512AC00891457 /* JMSViewController.m */; };
 		933979E418F512AC00891457 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933979E318F512AC00891457 /* Images.xcassets */; };
 		933979EB18F512AC00891457 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933979EA18F512AC00891457 /* XCTest.framework */; };
 		933979EC18F512AC00891457 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933979CB18F512AC00891457 /* Foundation.framework */; };
 		933979ED18F512AC00891457 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933979CF18F512AC00891457 /* UIKit.framework */; };
 		933979F518F512AC00891457 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 933979F318F512AC00891457 /* InfoPlist.strings */; };
 		933979F718F512AC00891457 /* ImHereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933979F618F512AC00891457 /* ImHereTests.m */; };
+		93397A0218FAF50A00891457 /* JMSBTPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 93397A0118FAF50A00891457 /* JMSBTPeripheral.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		933979C818F512AC00891457 /* ImHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		933979C818F512AC00891457 /* I'm Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I'm Here.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		933979CB18F512AC00891457 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		933979CD18F512AC00891457 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		933979CF18F512AC00891457 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -45,14 +45,14 @@
 		933979DA18F512AC00891457 /* JMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSAppDelegate.h; sourceTree = "<group>"; };
 		933979DB18F512AC00891457 /* JMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSAppDelegate.m; sourceTree = "<group>"; };
 		933979DE18F512AC00891457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		933979E018F512AC00891457 /* JMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSViewController.h; sourceTree = "<group>"; };
-		933979E118F512AC00891457 /* JMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSViewController.m; sourceTree = "<group>"; };
 		933979E318F512AC00891457 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		933979E918F512AC00891457 /* ImHereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImHereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933979EA18F512AC00891457 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		933979F218F512AC00891457 /* ImHereTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImHereTests-Info.plist"; sourceTree = "<group>"; };
 		933979F418F512AC00891457 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		933979F618F512AC00891457 /* ImHereTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImHereTests.m; sourceTree = "<group>"; };
+		93397A0018FAF50A00891457 /* JMSBTPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSBTPeripheral.h; sourceTree = "<group>"; };
+		93397A0118FAF50A00891457 /* JMSBTPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSBTPeripheral.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 		933979C918F512AC00891457 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				933979C818F512AC00891457 /* ImHere.app */,
+				933979C818F512AC00891457 /* I'm Here.app */,
 				933979E918F512AC00891457 /* ImHereTests.xctest */,
 			);
 			name = Products;
@@ -115,8 +115,8 @@
 				933979DA18F512AC00891457 /* JMSAppDelegate.h */,
 				933979DB18F512AC00891457 /* JMSAppDelegate.m */,
 				933979DD18F512AC00891457 /* Main.storyboard */,
-				933979E018F512AC00891457 /* JMSViewController.h */,
-				933979E118F512AC00891457 /* JMSViewController.m */,
+				93397A0018FAF50A00891457 /* JMSBTPeripheral.h */,
+				93397A0118FAF50A00891457 /* JMSBTPeripheral.m */,
 				933979E318F512AC00891457 /* Images.xcassets */,
 				933979D218F512AC00891457 /* Supporting Files */,
 			);
@@ -169,7 +169,7 @@
 			);
 			name = "I'm Here";
 			productName = ImHere;
-			productReference = 933979C818F512AC00891457 /* ImHere.app */;
+			productReference = 933979C818F512AC00891457 /* I'm Here.app */;
 			productType = "com.apple.product-type.application";
 		};
 		933979E818F512AC00891457 /* ImHereTests */ = {
@@ -250,9 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933979E218F512AC00891457 /* JMSViewController.m in Sources */,
 				933979D818F512AC00891457 /* main.m in Sources */,
 				933979DC18F512AC00891457 /* JMSAppDelegate.m in Sources */,
+				93397A0218FAF50A00891457 /* JMSBTPeripheral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +457,7 @@
 				933979FC18F512AC00891457 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		933979FD18F512AC00891457 /* Build configuration list for PBXNativeTarget "ImHereTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +466,7 @@
 				933979FF18F512AC00891457 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

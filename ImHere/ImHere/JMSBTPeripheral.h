@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JMSBTPeripheral : NSObject
+@protocol JMSBTPeripheralDelegate;
 
+extern NSString *const SERVICE_ID;
+extern NSString *const CHARACTERISTIC_ID;
+
+@interface JMSBTPeripheral : NSObject
+- (instancetype)initWithDelegate:(id<JMSBTPeripheralDelegate>)delegate;
+- (void)broadcastData:(NSString *)data;
+@end
+
+@protocol JMSBTPeripheralDelegate <NSObject>
 @end
