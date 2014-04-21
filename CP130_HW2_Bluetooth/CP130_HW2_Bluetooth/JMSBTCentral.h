@@ -11,11 +11,17 @@
 @protocol JMSBTCentralDelegate;
 
 @interface JMSBTCentral : NSObject
-@property (strong, nonatomic)NSString *serviceID;
-@property (strong, nonatomic)NSString *characteristicID;
+@property (readonly, nonatomic)NSString *serviceID;
+@property (readonly, nonatomic)NSString *characteristicID;
+@property (readonly, nonatomic)NSMutableData *dataOutput;
+@property (weak, nonatomic)id<JMSBTCentralDelegate>delegate;
+@property (nonatomic)BOOL scanning;
 
 - (instancetype)initWithDelegate:(id<JMSBTCentralDelegate>)delegate serviceID:(NSString *)serviceID characteristicID:(NSString *)characteristicID;
+- (void)startUpdating;
+- (void)stopUpdating;
 @end
 
 @protocol JMSBTCentralDelegate <NSObject>
+- (void)jmsCentralDidUpdateDataOutput:(JMSBTCentral *)central;
 @end

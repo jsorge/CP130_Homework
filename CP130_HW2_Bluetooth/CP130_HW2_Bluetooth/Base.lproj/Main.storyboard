@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Central View Controller - Central-->
+        <!--Central View Controller-->
         <scene sceneID="nSL-Vc-Swo">
             <objects>
                 <viewController id="Sqz-e6-hra" customClass="JMSCentralViewController" sceneMemberID="viewController">
@@ -15,13 +15,35 @@
                     <view key="view" contentMode="scaleToFill" id="0uo-ci-KeH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWC-mG-qvw">
+                                <rect key="frame" x="20" y="88" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQS-nA-uGr">
+                                <rect key="frame" x="20" y="486" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Scanning">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanButtonTapped:" destination="Sqz-e6-hra" eventType="touchUpInside" id="EmZ-V3-fwd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Central" id="TXD-Sm-Rdv"/>
+                    <navigationItem key="navigationItem" id="Ncu-cl-t6F"/>
+                    <connections>
+                        <outlet property="receivedTextlabel" destination="lWC-mG-qvw" id="5XE-Tq-PHb"/>
+                        <outlet property="scanButton" destination="EQS-nA-uGr" id="9Jb-5E-yb7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8MZ-7i-33l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="-281"/>
+            <point key="canvasLocation" x="924" y="-281"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="I3T-gR-zN8">
@@ -34,15 +56,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Sqz-e6-hra" kind="relationship" relationship="viewControllers" id="GK7-ms-7I7"/>
-                        <segue destination="HdK-kP-L6m" kind="relationship" relationship="viewControllers" id="DbV-he-MiN"/>
+                        <segue destination="6bF-ul-7rd" kind="relationship" relationship="viewControllers" id="GK7-ms-7I7"/>
+                        <segue destination="0DI-Vj-I3z" kind="relationship" relationship="viewControllers" id="DbV-he-MiN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bb-wB-jzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-136" y="46"/>
         </scene>
-        <!--Peripheral View Controller - Peripheral-->
+        <!--Peripheral View Controller-->
         <scene sceneID="nAW-KV-SpJ">
             <objects>
                 <viewController id="HdK-kP-L6m" customClass="JMSPeripheralViewController" sceneMemberID="viewController">
@@ -53,11 +75,71 @@
                     <view key="view" contentMode="scaleToFill" id="mrl-Ja-ZwD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Peripheral Text" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Phr-AP-yHR">
+                                <rect key="frame" x="20" y="92" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1J-9M-bm4">
+                                <rect key="frame" x="20" y="479" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Broadcasting">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="broadcastButtonTapped:" destination="HdK-kP-L6m" eventType="touchUpInside" id="uBK-Mp-0f7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Peripheral" id="fKb-0a-bx2"/>
+                    <navigationItem key="navigationItem" id="DgD-Z2-zG7"/>
+                    <connections>
+                        <outlet property="broadcastButton" destination="q1J-9M-bm4" id="cfr-2C-fV6"/>
+                        <outlet property="peripheralTextField" destination="Phr-AP-yHR" id="lmm-nl-Wam"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2Z-S2-Byt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="372"/>
+        </scene>
+        <!--Navigation Controller - Central-->
+        <scene sceneID="SQb-V3-QdD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6bF-ul-7rd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Central" id="TXD-Sm-Rdv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dPo-np-Big">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Sqz-e6-hra" kind="relationship" relationship="rootViewController" id="eV2-tJ-X0j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ehw-cH-cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="-281"/>
+        </scene>
+        <!--Navigation Controller - Peripheral-->
+        <scene sceneID="1on-Y2-6Wv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0DI-Vj-I3z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Peripheral" id="fKb-0a-bx2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJJ-xe-c1R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HdK-kP-L6m" kind="relationship" relationship="rootViewController" id="SE3-Lv-VuR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qWg-5c-p6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="398" y="372"/>
         </scene>

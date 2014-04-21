@@ -10,8 +10,11 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @interface JMSBTCentral ()<CBCentralManagerDelegate, CBPeripheralDelegate>
+@property (readwrite, nonatomic)NSString *serviceID;
+@property (readwrite, nonatomic)NSString *characteristicID;
+@property (readwrite, nonatomic)NSMutableData *dataOutput;
+
 @property (strong, nonatomic)CBCentralManager *manager;
-@property (strong, nonatomic)NSMutableData *data;
 @property (strong, nonatomic)CBPeripheral *peripheral;
 @end
 
@@ -29,6 +32,23 @@
     return self;
 }
 
+- (void)startUpdating
+{
+    if (!self.scanning) {
+        [self.manager scanForPeripheralsWithServices:@[self.serviceID]
+                                             options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
+        self.scanning = YES;
+    }
+}
+
+- (void)stopUpdating
+{
+    if (self.scanning) {
+        [self.manager stopScan];
+        self.scanning = NO;
+    }
+}
+
 #pragma mark - Properties
 - (CBCentralManager *)manager
 {
@@ -38,12 +58,20 @@
     return _manager;
 }
 
+- (NSMutableData *)dataOutput
+{
+    if (!_dataOutput) {
+        _dataOutput = [NSMutableData data];
+    }
+    return _dataOutput;
+}
+
 #pragma mark - CBCentralManagerDelegate
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     switch (central.state) {
         case CBCentralManagerStatePoweredOn:
-            [self.manager scanForPeripheralsWithServices:@[self.serviceID] options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
+            [self startUpdating];
             break;
             
         default:
@@ -64,9 +92,14 @@
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    [self.data setLength:0];
+    self.dataOutput = nil;
     self.peripheral.delegate = self;
     [self.peripheral discoverServices:@[[CBUUID UUIDWithString:self.serviceID]]];
+}
+
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    [self cleanup];
 }
 
 #pragma mark - CBPeripheralDelegate
@@ -74,7 +107,7 @@
 {
     if (error) {
         NSLog(@"Error discovering service.");
-//        [self cleanup];
+        [self cleanup];
         return;
     }
     
@@ -93,7 +126,7 @@
 {
     if (error) {
         NSLog(@"Error changing state");
-//        [self cleanup];
+        [self cleanup];
         return;
     } else if (![characteristic.UUID isEqual:[CBUUID UUIDWithString:self.characteristicID]]) {
         
@@ -105,5 +138,33 @@
     } else {
         [self.manager cancelPeripheralConnection:self.peripheral];
     }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
+{
+    if (error) {
+        NSLog(@"Peripheral updated value error: %@", error);
+        return;
+    }
+    
+    [self.dataOutput appendData:characteristic.value];
+    [self.delegate jmsCentralDidUpdateDataOutput:self];
+}
+
+#pragma mark - Private
+ - (void)cleanup
+{
+    if (self.peripheral.services != nil) {
+        for (CBService *service in self.peripheral.services) {
+            if (service.peripheral != nil) {
+                for (CBCharacteristic *characteristic in service.characteristics) {
+                    if (characteristic.isNotifying) {
+                        [self.peripheral setNotifyValue:NO forCharacteristic:characteristic];
+                    }
+                }
+            }
+        }
+    }
+    [self.manager cancelPeripheralConnection:self.peripheral];
 }
 @end

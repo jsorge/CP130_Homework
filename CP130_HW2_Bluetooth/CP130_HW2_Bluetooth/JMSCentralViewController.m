@@ -12,14 +12,20 @@
 
 @interface JMSCentralViewController () <JMSBTCentralDelegate>
 @property (strong, nonatomic)JMSBTCentral *central;
+@property (weak, nonatomic) IBOutlet UILabel *receivedTextlabel;
+@property (weak, nonatomic) IBOutlet UIButton *scanButton;
 @end
 
 @implementation JMSCentralViewController
-
+#pragma mark - View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.central stopUpdating];
 }
 
 #pragma mark - Properties
@@ -32,4 +38,23 @@
     }
     return _central;
 }
+
+#pragma mark - IBActions
+- (IBAction)scanButtonTapped:(id)sender
+{
+    if (self.central.scanning) {
+        [self.central stopUpdating];
+        self.scanButton.titleLabel.text = @"Stop Scan";
+    } else {
+        [self.central startUpdating];
+        self.scanButton.titleLabel.text = @"Start Scan";
+    }
+}
+
+#pragma mark - JMSBTCentralDelegate
+- (void)jmsCentralDidUpdateDataOutput:(JMSBTCentral *)central
+{
+    self.receivedTextlabel.text = [[NSString alloc] initWithData:self.central.dataOutput encoding:NSUTF8StringEncoding];
+}
+
 @end
