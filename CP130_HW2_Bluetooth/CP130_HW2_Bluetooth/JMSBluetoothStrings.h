@@ -10,5 +10,3 @@
 
 extern NSString *const SERVICE_UUID;
 extern NSString *const CHARACTERISTIC_UUID;
-
-extern NSString *const TRANSFER_SERVICE_UUID;

@@ -12,8 +12,6 @@
 
 @interface JMSBTPeripheral : NSObject
 @property (readonly, nonatomic)BOOL broadcasting;
-@property (readonly, nonatomic)NSString *serviceID;
-@property (readonly, nonatomic)NSString *characteristicID;
 @property (weak, nonatomic)id<JMSBTPeripheralDelegate>delegate;
 @property (strong, nonatomic)NSData *dataToSend;
 

@@ -46,7 +46,7 @@
 
 - (IBAction)stopBroadcastTapped:(id)sender
 {
-    [self.peripheral startBroadcasting];
+    [self.peripheral stopBroadcasting];
     self.stopBroadcastButton.enabled = NO;
     self.startBroadcastButton.enabled = YES;
 }

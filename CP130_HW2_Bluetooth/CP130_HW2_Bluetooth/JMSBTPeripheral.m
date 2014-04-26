@@ -11,8 +11,9 @@
 
 @interface JMSBTPeripheral () <CBPeripheralManagerDelegate>
 @property (readwrite, nonatomic)BOOL broadcasting;
-@property (readwrite, nonatomic)NSString *serviceID;
-@property (readwrite, nonatomic)NSString *characteristicID;
+
+@property (strong, nonatomic)CBUUID *serviceUUID;
+@property (strong, nonatomic)CBUUID *characteristicUUID;
 
 @property (strong, nonatomic)CBPeripheralManager *peripheralManager;
 @property (strong, nonatomic)CBMutableCharacteristic *transferCharacteristic;
@@ -27,8 +28,8 @@
     self = [super init];
     if (self) {
         self.delegate = delegate;
-        self.serviceID = serviceID;
-        self.characteristicID = characteristicID;
+        self.serviceUUID = [CBUUID UUIDWithString:serviceID];
+        self.characteristicUUID = [CBUUID UUIDWithString:characteristicID];
     }
     return self;
 }
@@ -36,22 +37,25 @@
 - (void)broadcastData:(NSString *)data
 {
     if (self.broadcasting) {
-        NSData *broadcastData = [data dataUsingEncoding:NSStringEncodingConversionExternalRepresentation];
-        [self.peripheralManager updateValue:broadcastData
-                          forCharacteristic:self.transferCharacteristic
-                       onSubscribedCentrals:nil];
+        self.dataToSend = [data dataUsingEncoding:NSStringEncodingConversionExternalRepresentation];
+        self.sendDataIndex = 0;
+        [self sendData];
     }
 }
 
 - (void)startBroadcasting
 {
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey: @[self.serviceUUID]}];
+    self.broadcasting = YES;
+    NSLog(@"Started broadcasting");
 }
 
 - (void)stopBroadcasting
 {
-    NSLog(@"Stopping broadcast.");
     [self.peripheralManager stopAdvertising];
+    [self.peripheralManager removeAllServices];
+    self.peripheralManager = nil;
     self.broadcasting = NO;
 }
 
@@ -71,20 +75,22 @@
         return;
     }
     
-    NSLog(@"Starting to broadcast.");
-    CBUUID *type = [CBUUID UUIDWithString:self.characteristicID];
-    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:type
+    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:self.characteristicUUID
                                                                      properties:CBCharacteristicPropertyNotify
                                                                           value:nil
                                                                     permissions:CBAttributePermissionsReadable];
-    CBMutableService *transferService = [[CBMutableService alloc] initWithType:type
+    CBMutableService *transferService = [[CBMutableService alloc] initWithType:self.serviceUUID
                                                                        primary:YES];
+    transferService.characteristics = @[self.transferCharacteristic];
     [self.peripheralManager addService:transferService];
-    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey: @[[CBUUID UUIDWithString:self.serviceID]]}];
-    self.broadcasting = YES;
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
+{
+    [self sendData];
+}
+
+- (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral
 {
     [self sendData];
 }
@@ -115,8 +121,9 @@
         amountToSend = amountToSend > 20 ? 20 : amountToSend;
         
         NSData *chunk = [NSData dataWithBytes:self.dataToSend.bytes+self.sendDataIndex length:amountToSend];
-        didSend = [self.peripheralManager updateValue:chunk forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
-        
+        didSend = [self.peripheralManager updateValue:chunk
+                                    forCharacteristic:self.transferCharacteristic
+                                 onSubscribedCentrals:nil];
         if (!didSend) {
             return;
         }
@@ -126,13 +133,13 @@
         
         self.sendDataIndex += amountToSend;
         
-        if (self.sendDataIndex >= self.dataToSend.length) {
+        if (self.sendDataIndex >= self.dataToSend.length || self.sendDataIndex == self.dataToSend.length) {
             sendingEndOfMessage = YES;
             
-            BOOL eomSent = [self.peripheralManager updateValue:[@"EOM" dataUsingEncoding:NSUTF8StringEncoding]
+            BOOL endOfMessageSent = [self.peripheralManager updateValue:[@"EOM" dataUsingEncoding:NSUTF8StringEncoding]
                                              forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
             
-            if (eomSent) {
+            if (endOfMessageSent) {
                 sendingEndOfMessage = NO;
                 NSLog(@"Sent: EOM");
             }

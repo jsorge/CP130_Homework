@@ -37,6 +37,8 @@
 - (IBAction)stopScanTapped:(id)sender
 {
     [self.central stopUpdating];
+    self.central = nil;
+    [self updateStatusLabelToNotConnected];
     self.stopScanningButton.enabled = NO;
     self.startScanningButton.enabled = YES;
 }
@@ -64,7 +66,12 @@
 
 - (void)jmsCentralDidDisconnectPeripheral:(JMSBTCentral *)central
 {
-    self.connectionStatusLabel.text = @"Not Connected";
+    [self updateStatusLabelToNotConnected];
 }
 
+#pragma mark - Private
+- (void)updateStatusLabelToNotConnected
+{
+    self.connectionStatusLabel.text = @"Not Connected";
+}
 @end
