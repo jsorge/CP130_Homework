@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9350E070190B7B2D005CB7C1 /* JMSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350E06F190B7B2D005CB7C1 /* JMSModel.m */; };
+		9350E073190B7B37005CB7C1 /* JMSMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350E072190B7B37005CB7C1 /* JMSMasterTableViewController.m */; };
+		9350E076190B7B3F005CB7C1 /* JMSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350E075190B7B3F005CB7C1 /* JMSDetailViewController.m */; };
 		93C58F5B190B74D000A51971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5A190B74D000A51971 /* Foundation.framework */; };
 		93C58F5D190B74D000A51971 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5C190B74D000A51971 /* CoreGraphics.framework */; };
 		93C58F5F190B74D000A51971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5E190B74D000A51971 /* UIKit.framework */; };
@@ -14,7 +17,6 @@
 		93C58F67190B74D000A51971 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F66190B74D000A51971 /* main.m */; };
 		93C58F6B190B74D000A51971 /* JMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F6A190B74D000A51971 /* JMSAppDelegate.m */; };
 		93C58F6E190B74D000A51971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F6C190B74D000A51971 /* Main.storyboard */; };
-		93C58F71190B74D000A51971 /* JMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C58F70190B74D000A51971 /* JMSViewController.m */; };
 		93C58F73190B74D000A51971 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C58F72190B74D000A51971 /* Images.xcassets */; };
 		93C58F7A190B74D000A51971 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F79190B74D000A51971 /* XCTest.framework */; };
 		93C58F7B190B74D000A51971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5A190B74D000A51971 /* Foundation.framework */; };
@@ -34,6 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9350E06E190B7B2D005CB7C1 /* JMSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSModel.h; sourceTree = "<group>"; };
+		9350E06F190B7B2D005CB7C1 /* JMSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSModel.m; sourceTree = "<group>"; };
+		9350E071190B7B37005CB7C1 /* JMSMasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSMasterTableViewController.h; sourceTree = "<group>"; };
+		9350E072190B7B37005CB7C1 /* JMSMasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSMasterTableViewController.m; sourceTree = "<group>"; };
+		9350E074190B7B3F005CB7C1 /* JMSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSDetailViewController.h; sourceTree = "<group>"; };
+		9350E075190B7B3F005CB7C1 /* JMSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSDetailViewController.m; sourceTree = "<group>"; };
 		93C58F57190B74D000A51971 /* CP130_HW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP130_HW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C58F5A190B74D000A51971 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		93C58F5C190B74D000A51971 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,8 +53,6 @@
 		93C58F69190B74D000A51971 /* JMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSAppDelegate.h; sourceTree = "<group>"; };
 		93C58F6A190B74D000A51971 /* JMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSAppDelegate.m; sourceTree = "<group>"; };
 		93C58F6D190B74D000A51971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		93C58F6F190B74D000A51971 /* JMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSViewController.h; sourceTree = "<group>"; };
-		93C58F70190B74D000A51971 /* JMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMSViewController.m; sourceTree = "<group>"; };
 		93C58F72190B74D000A51971 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93C58F78190B74D000A51971 /* CP130_HW3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP130_HW3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C58F79190B74D000A51971 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -115,8 +121,12 @@
 				93C58F69190B74D000A51971 /* JMSAppDelegate.h */,
 				93C58F6A190B74D000A51971 /* JMSAppDelegate.m */,
 				93C58F6C190B74D000A51971 /* Main.storyboard */,
-				93C58F6F190B74D000A51971 /* JMSViewController.h */,
-				93C58F70190B74D000A51971 /* JMSViewController.m */,
+				9350E06E190B7B2D005CB7C1 /* JMSModel.h */,
+				9350E06F190B7B2D005CB7C1 /* JMSModel.m */,
+				9350E071190B7B37005CB7C1 /* JMSMasterTableViewController.h */,
+				9350E072190B7B37005CB7C1 /* JMSMasterTableViewController.m */,
+				9350E074190B7B3F005CB7C1 /* JMSDetailViewController.h */,
+				9350E075190B7B3F005CB7C1 /* JMSDetailViewController.m */,
 				93C58F72190B74D000A51971 /* Images.xcassets */,
 				93C58F61190B74D000A51971 /* Supporting Files */,
 			);
@@ -250,8 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93C58F71190B74D000A51971 /* JMSViewController.m in Sources */,
+				9350E070190B7B2D005CB7C1 /* JMSModel.m in Sources */,
 				93C58F67190B74D000A51971 /* main.m in Sources */,
+				9350E076190B7B3F005CB7C1 /* JMSDetailViewController.m in Sources */,
+				9350E073190B7B37005CB7C1 /* JMSMasterTableViewController.m in Sources */,
 				93C58F6B190B74D000A51971 /* JMSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +471,7 @@
 				93C58F8B190B74D000A51971 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93C58F8C190B74D000A51971 /* Build configuration list for PBXNativeTarget "CP130_HW3Tests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +480,7 @@
 				93C58F8E190B74D000A51971 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

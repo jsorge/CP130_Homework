@@ -1,13 +1,13 @@
 //
-//  JMSViewController.h
+//  JMSModel.m
 //  CP130_HW3
 //
 //  Created by Jared Sorge on 4/25/14.
 //  Copyright (c) 2014 jsorge. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JMSModel.h"
 
-@interface JMSViewController : UIViewController
+@implementation JMSModel
 
 @end

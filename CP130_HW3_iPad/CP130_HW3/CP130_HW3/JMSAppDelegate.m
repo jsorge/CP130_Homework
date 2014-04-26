@@ -7,15 +7,31 @@
 //
 
 #import "JMSAppDelegate.h"
+#import "JMSMasterTableViewController.h"
+#import "JMSDetailViewController.h"
+
+typedef NS_ENUM(NSInteger, JMSMasterDetailViewControllerIndices){
+    MasterViewControllerIndex = 0,
+    DetailViewControllerIndex
+};
 
 @implementation JMSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UISplitViewController *splitView = (UISplitViewController *)self.window.rootViewController;
+    UINavigationController *masterNav = splitView.viewControllers[MasterViewControllerIndex];
+    UINavigationController *detailNav = splitView.viewControllers[DetailViewControllerIndex];
+    
+    JMSMasterTableViewController *master = (JMSMasterTableViewController *)masterNav.topViewController;
+    JMSDetailViewController *detail = (JMSDetailViewController *)detailNav.topViewController;
+    
+    master.delegate = detail;
+    splitView.delegate = detail;
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
