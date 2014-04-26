@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 @class JMSModel;
 
+@protocol JMSEditModelDelegate;
+
 @interface JMSEditModelViewController : UIViewController
+@property (weak, nonatomic)id<JMSEditModelDelegate>delegate;
 @property (strong, nonatomic)JMSModel *model;
+@end
+
+@protocol JMSEditModelDelegate <NSObject>
+- (void)modelDidFinishEditing:(JMSModel *)model;
 @end

@@ -66,7 +66,7 @@
                     <connections>
                         <outlet property="subtitleTextLabel" destination="sKd-kj-jyl" id="9jE-er-35f"/>
                         <outlet property="titleTextLabel" destination="iKL-bx-3G6" id="707-Jx-7NP"/>
-                        <segue destination="VDL-Lm-IVw" kind="modal" identifier="seg_modal" id="PyG-3X-Mbr"/>
+                        <segue destination="VDL-Lm-IVw" kind="modal" identifier="seg_modal" modalPresentationStyle="formSheet" id="PyG-3X-Mbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCS-vR-66w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,23 +91,65 @@
             </objects>
             <point key="canvasLocation" x="6027" y="308"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Model View Controller-->
         <scene sceneID="efp-bs-ltN">
             <objects>
-                <viewController id="VDL-Lm-IVw" sceneMemberID="viewController">
+                <viewController id="VDL-Lm-IVw" customClass="JMSEditModelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PKw-H0-HHP"/>
                         <viewControllerLayoutGuide type="bottom" id="Fwm-6E-gCt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oR4-p4-yWy">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JcB-4W-V4H">
+                                <rect key="frame" x="198" y="112" width="223" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WuQ-bg-uA7">
+                                <rect key="frame" x="198" y="203" width="223" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpH-iW-nyk">
+                                <rect key="frame" x="146" y="116" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hz-j8-AiS">
+                                <rect key="frame" x="120" y="207" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIx-lr-fB0">
+                                <rect key="frame" x="243" y="270" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="VDL-Lm-IVw" eventType="touchUpInside" id="m9l-yJ-ngx"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="400"/>
+                    <connections>
+                        <outlet property="subtitleTextField" destination="WuQ-bg-uA7" id="Nug-y5-FAl"/>
+                        <outlet property="titleTextField" destination="JcB-4W-V4H" id="nOZ-ep-Lsp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXC-w7-j9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6233" y="1444"/>
+            <point key="canvasLocation" x="6249" y="1706"/>
         </scene>
         <!--Master Table View Controller - Root View Controller-->
         <scene sceneID="3Aq-20-Npy">
