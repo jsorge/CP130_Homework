@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface JMSModel : NSObject
+@property (strong, nonatomic)NSString *title;
+@property (strong, nonatomic)NSString *subtitle;
 
++ (instancetype)modelWithTitle:(NSString *)title subtitle:(NSString *)subtitle;
 @end

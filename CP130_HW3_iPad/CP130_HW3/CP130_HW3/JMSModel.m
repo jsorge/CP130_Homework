@@ -9,5 +9,13 @@
 #import "JMSModel.h"
 
 @implementation JMSModel
-
++ (instancetype)modelWithTitle:(NSString *)title subtitle:(NSString *)subtitle
+{
+    JMSModel *model = [[JMSModel alloc] init];
+    if (model) {
+        model.title = [title copy];
+        model.subtitle = [subtitle copy];
+    }
+    return model;
+}
 @end

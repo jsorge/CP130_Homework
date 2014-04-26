@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JMSModel;
 
 @protocol JMSMasterDelegate;
 
@@ -16,4 +17,5 @@
 @end
 
 @protocol JMSMasterDelegate <NSObject>
+- (void)master:(JMSMasterTableViewController *)master didSelectObject:(JMSModel *)model;
 @end

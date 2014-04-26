@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "JMSMasterTableViewController.h"
+@class JMSModel;
 
 @interface JMSDetailViewController : UIViewController <UISplitViewControllerDelegate, JMSMasterDelegate>
-
+@property (strong, nonatomic)JMSModel *modelObject;
 @end

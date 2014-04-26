@@ -10,6 +10,7 @@
 		9350E070190B7B2D005CB7C1 /* JMSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350E06F190B7B2D005CB7C1 /* JMSModel.m */; };
 		9350E073190B7B37005CB7C1 /* JMSMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350E072190B7B37005CB7C1 /* JMSMasterTableViewController.m */; };
 		9350E076190B7B3F005CB7C1 /* JMSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350E075190B7B3F005CB7C1 /* JMSDetailViewController.m */; };
+		93BC88A5190B8516004B5443 /* JMSEditModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC88A4190B8516004B5443 /* JMSEditModelViewController.m */; };
 		93C58F5B190B74D000A51971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5A190B74D000A51971 /* Foundation.framework */; };
 		93C58F5D190B74D000A51971 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5C190B74D000A51971 /* CoreGraphics.framework */; };
 		93C58F5F190B74D000A51971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C58F5E190B74D000A51971 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 		9350E072190B7B37005CB7C1 /* JMSMasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSMasterTableViewController.m; sourceTree = "<group>"; };
 		9350E074190B7B3F005CB7C1 /* JMSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSDetailViewController.h; sourceTree = "<group>"; };
 		9350E075190B7B3F005CB7C1 /* JMSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSDetailViewController.m; sourceTree = "<group>"; };
+		93BC88A3190B8516004B5443 /* JMSEditModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSEditModelViewController.h; sourceTree = "<group>"; };
+		93BC88A4190B8516004B5443 /* JMSEditModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSEditModelViewController.m; sourceTree = "<group>"; };
 		93C58F57190B74D000A51971 /* CP130_HW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP130_HW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C58F5A190B74D000A51971 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		93C58F5C190B74D000A51971 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,8 @@
 				9350E072190B7B37005CB7C1 /* JMSMasterTableViewController.m */,
 				9350E074190B7B3F005CB7C1 /* JMSDetailViewController.h */,
 				9350E075190B7B3F005CB7C1 /* JMSDetailViewController.m */,
+				93BC88A3190B8516004B5443 /* JMSEditModelViewController.h */,
+				93BC88A4190B8516004B5443 /* JMSEditModelViewController.m */,
 				93C58F72190B74D000A51971 /* Images.xcassets */,
 				93C58F61190B74D000A51971 /* Supporting Files */,
 			);
@@ -261,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9350E070190B7B2D005CB7C1 /* JMSModel.m in Sources */,
+				93BC88A5190B8516004B5443 /* JMSEditModelViewController.m in Sources */,
 				93C58F67190B74D000A51971 /* main.m in Sources */,
 				9350E076190B7B3F005CB7C1 /* JMSDetailViewController.m in Sources */,
 				9350E073190B7B37005CB7C1 /* JMSMasterTableViewController.m in Sources */,
