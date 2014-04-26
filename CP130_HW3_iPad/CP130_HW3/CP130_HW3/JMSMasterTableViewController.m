@@ -8,6 +8,7 @@
 
 #import "JMSMasterTableViewController.h"
 #import "JMSModel.h"
+#import "JMSDetailViewController.h"
 
 @interface JMSMasterTableViewController ()
 
@@ -19,6 +20,10 @@
     [super viewDidLoad];
     [self.objects addObject:[JMSModel modelWithTitle:@"Thing 1" subtitle:@"Something"]];
     [self.objects addObject:[JMSModel modelWithTitle:@"Thing 2" subtitle:@"Some other thing"]];
+    [self.objects addObject:[JMSModel modelWithTitle:@"Foo" subtitle:@"Bar"]];
+    [self.objects addObject:[JMSModel modelWithTitle:@"Glorious model" subtitle:@"Wonderful!"]];
+    
+    [self.delegate master:self didSelectObject:self.objects[0]];
 }
 
 #pragma mark - Properties

@@ -10,8 +10,13 @@
 #import "JMSMasterTableViewController.h"
 
 @class JMSModel;
-
+@protocol JMSDetailDelegate;
 
 @interface JMSDetailViewController : UIViewController <UISplitViewControllerDelegate, JMSMasterDelegate>
 @property (strong, nonatomic)JMSModel *modelObject;
+@property (weak, nonatomic)id<JMSDetailDelegate>delegate;
+@end
+
+@protocol JMSDetailDelegate <NSObject>
+- (void)detail:(JMSDetailViewController *)detail didUpdateModelObject:(JMSModel *)model;
 @end
