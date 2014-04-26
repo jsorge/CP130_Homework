@@ -13,7 +13,10 @@
 @interface JMSCentralViewController () <JMSBTCentralDelegate>
 @property (strong, nonatomic)JMSBTCentral *central;
 @property (weak, nonatomic) IBOutlet UILabel *receivedTextlabel;
-@property (weak, nonatomic) IBOutlet UIButton *scanButton;
+@property (weak, nonatomic) IBOutlet UILabel *connectionStatusLabel;
+
+@property (weak, nonatomic)IBOutlet UIButton *startScanningButton;
+@property (weak, nonatomic)IBOutlet UIButton *stopScanningButton;
 @end
 
 @implementation JMSCentralViewController
@@ -25,36 +28,43 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.central stopUpdating];
-}
-
-#pragma mark - Properties
-- (JMSBTCentral *)central
-{
-    if (!_central) {
-        _central = [[JMSBTCentral alloc] initWithDelegate:self
-                                                serviceID:SERVICE_UUID
-                                         characteristicID:CHARACTERISTIC_UUID];
+    if (self.central) {
+        [self.central stopUpdating];
     }
-    return _central;
 }
 
 #pragma mark - IBActions
-- (IBAction)scanButtonTapped:(id)sender
+- (IBAction)stopScanTapped:(id)sender
 {
-    if (self.central.scanning) {
-        [self.central stopUpdating];
-        self.scanButton.titleLabel.text = @"Stop Scan";
-    } else {
-        [self.central startUpdating];
-        self.scanButton.titleLabel.text = @"Start Scan";
-    }
+    [self.central stopUpdating];
+    self.stopScanningButton.enabled = NO;
+    self.startScanningButton.enabled = YES;
+}
+
+- (IBAction)startScanTapped:(id)sender
+{
+    self.central = [[JMSBTCentral alloc] initWithDelegate:self
+                                                serviceID:SERVICE_UUID
+                                         characteristicID:CHARACTERISTIC_UUID];
+    
+    [self.central startUpdating];
+    self.stopScanningButton.enabled = YES;
+    self.startScanningButton.enabled = NO;
 }
 
 #pragma mark - JMSBTCentralDelegate
-- (void)jmsCentralDidUpdateDataOutput:(JMSBTCentral *)central
+- (void)jmsCentralDidUpdateDataOutput:(JMSBTCentral *)central withString:(NSString *)outputString
 {
-    self.receivedTextlabel.text = [[NSString alloc] initWithData:self.central.dataOutput encoding:NSUTF8StringEncoding];
+    self.receivedTextlabel.text = outputString;
+}
+- (void)jmsCentralDidConnectToPeripheral:(JMSBTCentral *)central
+{
+    self.connectionStatusLabel.text = @"Connected";
+}
+
+- (void)jmsCentralDidDisconnectPeripheral:(JMSBTCentral *)central
+{
+    self.connectionStatusLabel.text = @"Not Connected";
 }
 
 @end

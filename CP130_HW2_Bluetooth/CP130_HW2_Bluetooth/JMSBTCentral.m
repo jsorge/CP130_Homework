@@ -13,6 +13,7 @@
 @property (readwrite, nonatomic)NSString *serviceID;
 @property (readwrite, nonatomic)NSString *characteristicID;
 @property (readwrite, nonatomic)NSMutableData *dataOutput;
+@property (readwrite, nonatomic)BOOL scanning;
 
 @property (strong, nonatomic)CBCentralManager *manager;
 @property (strong, nonatomic)CBPeripheral *peripheral;
@@ -27,6 +28,8 @@
     if (self) {
         self.serviceID = serviceID;
         self.characteristicID = characteristicID;
+        self.delegate = delegate;
+        [self startUpdating];
     }
     
     return self;
@@ -34,30 +37,17 @@
 
 - (void)startUpdating
 {
-    if (!self.scanning) {
-        [self.manager scanForPeripheralsWithServices:@[self.serviceID]
-                                             options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
-        self.scanning = YES;
-    }
+    self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
 - (void)stopUpdating
 {
-    if (self.scanning) {
-        [self.manager stopScan];
-        self.scanning = NO;
-    }
+    [self.manager stopScan];
+    [self.manager cancelPeripheralConnection:self.peripheral];
+    self.scanning = NO;
 }
 
 #pragma mark - Properties
-- (CBCentralManager *)manager
-{
-    if (!_manager) {
-        _manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-    }
-    return _manager;
-}
-
 - (NSMutableData *)dataOutput
 {
     if (!_dataOutput) {
@@ -69,32 +59,18 @@
 #pragma mark - CBCentralManagerDelegate
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    switch (central.state) {
-        case CBCentralManagerStatePoweredOn:
-            [self startUpdating];
-            break;
-            
-        default:
-            NSLog(@"Central manager didn't change state.");
-            break;
+    if (central.state == CBCentralManagerStatePoweredOn) {
+        [self startCentralScan];
+        self.scanning = YES;
     }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    [self.manager stopScan];
-    
-    if (self.peripheral != peripheral) {
+    if (peripheral != self.peripheral) {
         self.peripheral = peripheral;
         [self.manager connectPeripheral:peripheral options:nil];
     }
-}
-
-- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
-{
-    self.dataOutput = nil;
-    self.peripheral.delegate = self;
-    [self.peripheral discoverServices:@[[CBUUID UUIDWithString:self.serviceID]]];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
@@ -102,53 +78,79 @@
     [self cleanup];
 }
 
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    [self.manager stopScan];
+    
+    self.dataOutput = nil;
+    
+    peripheral.delegate = self;
+    [peripheral discoverServices:@[[CBUUID UUIDWithString:self.serviceID]]];
+    
+    [self.delegate jmsCentralDidConnectToPeripheral:self];
+}
+
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    self.peripheral = nil;
+    [self.delegate jmsCentralDidDisconnectPeripheral:self];
+    [self startCentralScan];
+}
+
 #pragma mark - CBPeripheralDelegate
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
     if (error) {
-        NSLog(@"Error discovering service.");
+        NSLog(@"Error: %@", error);
         [self cleanup];
         return;
     }
     
-    CBUUID *selfServiceUUID = [CBUUID UUIDWithString:self.serviceID];
-    CBUUID *selfCharacteristicID = [CBUUID UUIDWithString:self.characteristicID];
     for (CBService *service in peripheral.services) {
-        NSLog(@"Periipheral with ID %@", service.UUID);
-        
-        if ([service.UUID isEqual:selfServiceUUID]) {
-            [self.peripheral discoverCharacteristics:@[selfCharacteristicID] forService:service];
-        }
+        [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:self.characteristicID]]
+                                 forService:service];
     }
 }
 
-- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
     if (error) {
-        NSLog(@"Error changing state");
+        NSLog(@"Erro: %@", error);
         [self cleanup];
         return;
-    } else if (![characteristic.UUID isEqual:[CBUUID UUIDWithString:self.characteristicID]]) {
-        
     }
     
-    if (characteristic.isNotifying) {
-        NSLog(@"Notification began on characteristic %@", characteristic);
-        [peripheral readValueForCharacteristic:characteristic];
-    } else {
-        [self.manager cancelPeripheralConnection:self.peripheral];
+    for (CBCharacteristic *characteristic in service.characteristics) {
+        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:self.characteristicID]]) {
+            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
+        }
     }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     if (error) {
-        NSLog(@"Peripheral updated value error: %@", error);
+        NSLog(@"Error: %@", error);
         return;
     }
     
-    [self.dataOutput appendData:characteristic.value];
-    [self.delegate jmsCentralDidUpdateDataOutput:self];
+    NSString *receivedString = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
+    if ([receivedString isEqualToString:@"EOM"]) {
+        [self.delegate jmsCentralDidUpdateDataOutput:self withString:receivedString];
+        [peripheral setNotifyValue:NO forCharacteristic:characteristic];
+        [self.manager cancelPeripheralConnection:peripheral];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
+{
+    if (![characteristic isEqual:[CBUUID UUIDWithString:self.characteristicID]]) {
+        return;
+    }
+    
+    if (!characteristic.isNotifying) {
+        [self.manager cancelPeripheralConnection:peripheral];
+    }
 }
 
 #pragma mark - Private
@@ -165,6 +167,11 @@
             }
         }
     }
-    [self.manager cancelPeripheralConnection:self.peripheral];
+}
+
+- (void)startCentralScan
+{
+    [self.manager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:self.serviceID]]
+                                         options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
 }
 @end

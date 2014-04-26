@@ -11,10 +11,18 @@
 @protocol JMSBTPeripheralDelegate;
 
 @interface JMSBTPeripheral : NSObject
-@property (strong, nonatomic)NSString *serviceID;
+@property (readonly, nonatomic)BOOL broadcasting;
+@property (readonly, nonatomic)NSString *serviceID;
+@property (readonly, nonatomic)NSString *characteristicID;
+@property (weak, nonatomic)id<JMSBTPeripheralDelegate>delegate;
+@property (strong, nonatomic)NSData *dataToSend;
+
 - (instancetype)initWithDelegate:(id<JMSBTPeripheralDelegate>)delegate serviceID:(NSString *)serviceID characteristicID:(NSString *)characteristicID;
 - (void)broadcastData:(NSString *)data;
+- (void)startBroadcasting;
+- (void)stopBroadcasting;
 @end
 
 @protocol JMSBTPeripheralDelegate <NSObject>
+
 @end

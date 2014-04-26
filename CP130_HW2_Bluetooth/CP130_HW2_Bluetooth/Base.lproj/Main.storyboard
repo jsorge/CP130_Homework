@@ -13,32 +13,57 @@
                         <viewControllerLayoutGuide type="bottom" id="5Jn-Jj-oFY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0uo-ci-KeH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWC-mG-qvw">
-                                <rect key="frame" x="20" y="88" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWC-mG-qvw">
+                                <rect key="frame" x="20" y="113" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQS-nA-uGr">
-                                <rect key="frame" x="20" y="486" width="280" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6G-BT-vR1">
+                                <rect key="frame" x="20" y="395" width="102" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Scanning">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="scanButtonTapped:" destination="Sqz-e6-hra" eventType="touchUpInside" id="EmZ-V3-fwd"/>
+                                    <action selector="startScanTapped:" destination="Sqz-e6-hra" eventType="touchUpInside" id="bId-OI-hbp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjt-yE-Ss0">
+                                <rect key="frame" x="199" y="395" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop Scanning">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopScanTapped:" destination="Sqz-e6-hra" eventType="touchUpInside" id="rQu-Bc-eEO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not Connected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmu-zP-NgV">
+                                <rect key="frame" x="20" y="84" width="117" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Jn-Jj-oFY" firstAttribute="top" secondItem="K6G-BT-vR1" secondAttribute="bottom" constant="6" id="A6W-Xt-qHU"/>
+                            <constraint firstItem="K6G-BT-vR1" firstAttribute="leading" secondItem="0uo-ci-KeH" secondAttribute="leading" constant="20" id="K2w-la-6Re"/>
+                            <constraint firstItem="5Jn-Jj-oFY" firstAttribute="top" secondItem="xjt-yE-Ss0" secondAttribute="bottom" constant="6" id="sfN-hk-BhH"/>
+                            <constraint firstAttribute="trailing" secondItem="xjt-yE-Ss0" secondAttribute="trailing" constant="20" id="yBU-Me-Yjl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ncu-cl-t6F"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="connectionStatusLabel" destination="Fmu-zP-NgV" id="ni5-LW-hVn"/>
                         <outlet property="receivedTextlabel" destination="lWC-mG-qvw" id="5XE-Tq-PHb"/>
-                        <outlet property="scanButton" destination="EQS-nA-uGr" id="9Jb-5E-yb7"/>
+                        <outlet property="startScanningButton" destination="K6G-BT-vR1" id="9IK-UR-3XO"/>
+                        <outlet property="stopScanningButton" destination="xjt-yE-Ss0" id="d12-2K-5Ga"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8MZ-7i-33l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,19 +102,29 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Peripheral Text" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Phr-AP-yHR">
-                                <rect key="frame" x="20" y="92" width="280" height="30"/>
+                                <rect key="frame" x="20" y="144" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1J-9M-bm4">
-                                <rect key="frame" x="20" y="479" width="280" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eff-zv-pB2">
+                                <rect key="frame" x="106" y="106" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start Broadcasting">
+                                <state key="normal" title="Stop Broadcast">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="broadcastButtonTapped:" destination="HdK-kP-L6m" eventType="touchUpInside" id="uBK-Mp-0f7"/>
+                                    <action selector="stopBroadcastTapped:" destination="HdK-kP-L6m" eventType="touchUpInside" id="Phe-N5-MGB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a64-FX-jZW">
+                                <rect key="frame" x="106" y="68" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Broadcast">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startBroadcastTapped:" destination="HdK-kP-L6m" eventType="touchUpInside" id="fU3-2G-snZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,8 +132,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="DgD-Z2-zG7"/>
                     <connections>
-                        <outlet property="broadcastButton" destination="q1J-9M-bm4" id="cfr-2C-fV6"/>
                         <outlet property="peripheralTextField" destination="Phr-AP-yHR" id="lmm-nl-Wam"/>
+                        <outlet property="startBroadcastButton" destination="a64-FX-jZW" id="Pca-2R-b3i"/>
+                        <outlet property="stopBroadcastButton" destination="eff-zv-pB2" id="8Ci-wu-X8x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2Z-S2-Byt" userLabel="First Responder" sceneMemberID="firstResponder"/>

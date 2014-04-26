@@ -7,33 +7,56 @@
 //
 
 #import "JMSPeripheralViewController.h"
+#import "JMSBTPeripheral.h"
+#import "JMSBluetoothStrings.h"
 
-@interface JMSPeripheralViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *broadcastButton;
+@interface JMSPeripheralViewController () <JMSBTPeripheralDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *peripheralTextField;
+@property (weak, nonatomic)IBOutlet UIButton *startBroadcastButton;
+@property (weak, nonatomic)IBOutlet UIButton *stopBroadcastButton;
+
+@property (strong, nonatomic)JMSBTPeripheral *peripheral;
 @end
 
 @implementation JMSPeripheralViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+#pragma mark - View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.peripheralTextField.delegate = self;
 }
 
-#pragma mark - IBActions
-- (IBAction)broadcastButtonTapped:(id)sender
+#pragma mark - Properties
+- (JMSBTPeripheral *)peripheral
 {
-    
+    if (!_peripheral) {
+        _peripheral = [[JMSBTPeripheral alloc] initWithDelegate:self
+                                                      serviceID:SERVICE_UUID
+                                               characteristicID:CHARACTERISTIC_UUID];
+    }
+    return _peripheral;
+}
+#pragma mark - IBActions
+- (IBAction)startBroadcastTapped:(id)sender
+{
+    [self.peripheral startBroadcasting];
+    self.stopBroadcastButton.enabled = YES;
+    self.startBroadcastButton.enabled = NO;
+}
+
+- (IBAction)stopBroadcastTapped:(id)sender
+{
+    [self.peripheral startBroadcasting];
+    self.stopBroadcastButton.enabled = NO;
+    self.startBroadcastButton.enabled = YES;
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.peripheral broadcastData:self.peripheralTextField.text];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

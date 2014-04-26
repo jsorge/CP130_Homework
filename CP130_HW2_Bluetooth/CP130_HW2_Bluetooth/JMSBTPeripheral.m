@@ -10,11 +10,14 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @interface JMSBTPeripheral () <CBPeripheralManagerDelegate>
-@property (weak, nonatomic)id<JMSBTPeripheralDelegate>delegate;
+@property (readwrite, nonatomic)BOOL broadcasting;
+@property (readwrite, nonatomic)NSString *serviceID;
+@property (readwrite, nonatomic)NSString *characteristicID;
+
 @property (strong, nonatomic)CBPeripheralManager *peripheralManager;
 @property (strong, nonatomic)CBMutableCharacteristic *transferCharacteristic;
 @property (strong, nonatomic)CBMutableService *service;
-@property (strong, nonatomic)NSString *characteristicID;
+@property (nonatomic)NSInteger sendDataIndex;
 @end
 
 @implementation JMSBTPeripheral
@@ -24,7 +27,6 @@
     self = [super init];
     if (self) {
         self.delegate = delegate;
-        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
         self.serviceID = serviceID;
         self.characteristicID = characteristicID;
     }
@@ -33,39 +35,110 @@
 
 - (void)broadcastData:(NSString *)data
 {
-    NSData *broadcastData = [data dataUsingEncoding:NSStringEncodingConversionExternalRepresentation];
-    [self.peripheralManager updateValue:broadcastData
-                      forCharacteristic:self.transferCharacteristic
-                   onSubscribedCentrals:nil];
+    if (self.broadcasting) {
+        NSData *broadcastData = [data dataUsingEncoding:NSStringEncodingConversionExternalRepresentation];
+        [self.peripheralManager updateValue:broadcastData
+                          forCharacteristic:self.transferCharacteristic
+                       onSubscribedCentrals:nil];
+    }
+}
+
+- (void)startBroadcasting
+{
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+}
+
+- (void)stopBroadcasting
+{
+    NSLog(@"Stopping broadcast.");
+    [self.peripheralManager stopAdvertising];
+    self.broadcasting = NO;
+}
+
+#pragma mark - Properties
+- (CBPeripheralManager *)peripheralManager
+{
+    if (!_peripheralManager) {
+        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+    }
+    return _peripheralManager;
 }
 
 #pragma mark - CBPeripheralManagerDelegate
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
-    CBPeripheralManagerState state = peripheral.state;
-    switch (state) {
-        case CBPeripheralManagerStatePoweredOn:
-            [self setupInitialService];
-            break;
-        default:
-            NSLog(@"Peripheral manager did not power on");
-            break;
+    if (peripheral.state != CBPeripheralManagerStatePoweredOn) {
+        return;
     }
-}
-
-#pragma mark - Private
-- (void)setupInitialService
-{
-    CBUUID *characteristicID = [CBUUID UUIDWithString:self.characteristicID];
-    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:characteristicID
+    
+    NSLog(@"Starting to broadcast.");
+    CBUUID *type = [CBUUID UUIDWithString:self.characteristicID];
+    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:type
                                                                      properties:CBCharacteristicPropertyNotify
                                                                           value:nil
                                                                     permissions:CBAttributePermissionsReadable];
-    
-    CBUUID *serviceID = [CBUUID UUIDWithString:self.serviceID];
-    self.service = [[CBMutableService alloc] initWithType:serviceID primary:YES];
-    
-    [self.service setCharacteristics:@[self.transferCharacteristic]];
-    [self.peripheralManager addService:self.service];
+    CBMutableService *transferService = [[CBMutableService alloc] initWithType:type
+                                                                       primary:YES];
+    [self.peripheralManager addService:transferService];
+    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey: @[[CBUUID UUIDWithString:self.serviceID]]}];
+    self.broadcasting = YES;
 }
+
+- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
+{
+    [self sendData];
+}
+
+#pragma mark - Private
+- (void)sendData
+{
+    static BOOL sendingEndOfMessage = NO;
+    
+    if (sendingEndOfMessage) {
+        BOOL didSend = [self.peripheralManager updateValue:[@"EOM" dataUsingEncoding:NSUTF8StringEncoding]
+                                         forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
+        
+        if (didSend) {
+            sendingEndOfMessage = NO;
+        }
+        return;
+    }
+    
+    if (self.sendDataIndex >= self.dataToSend.length) {
+        return;
+    }
+    
+    BOOL didSend = YES;
+    
+    while (didSend) {
+        NSInteger amountToSend = self.dataToSend.length - self.sendDataIndex;
+        amountToSend = amountToSend > 20 ? 20 : amountToSend;
+        
+        NSData *chunk = [NSData dataWithBytes:self.dataToSend.bytes+self.sendDataIndex length:amountToSend];
+        didSend = [self.peripheralManager updateValue:chunk forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
+        
+        if (!didSend) {
+            return;
+        }
+        
+        NSString *stringFromData = [[NSString alloc] initWithData:chunk encoding:NSUTF8StringEncoding];
+        NSLog(@"Sent: %@", stringFromData);
+        
+        self.sendDataIndex += amountToSend;
+        
+        if (self.sendDataIndex >= self.dataToSend.length) {
+            sendingEndOfMessage = YES;
+            
+            BOOL eomSent = [self.peripheralManager updateValue:[@"EOM" dataUsingEncoding:NSUTF8StringEncoding]
+                                             forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
+            
+            if (eomSent) {
+                sendingEndOfMessage = NO;
+                NSLog(@"Sent: EOM");
+            }
+            return;
+        }
+    }
+}
+
 @end
