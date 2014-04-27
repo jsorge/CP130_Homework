@@ -11,7 +11,6 @@
 @protocol JMSBTCentralDelegate;
 
 @interface JMSBTCentral : NSObject
-@property (readonly, nonatomic)NSMutableData *dataOutput;
 @property (weak, nonatomic)id<JMSBTCentralDelegate>delegate;
 @property (readonly, nonatomic)BOOL scanning;
 
