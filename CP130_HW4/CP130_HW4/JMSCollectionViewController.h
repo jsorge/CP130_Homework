@@ -1,5 +1,5 @@
 //
-//  JMSViewController.h
+//  JMSCollectionViewController.h
 //  CP130_HW4
 //
 //  Created by Jared Sorge on 4/26/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JMSViewController : UIViewController
+@interface JMSCollectionViewController : UICollectionViewController
 
 @end
