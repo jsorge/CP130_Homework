@@ -9,13 +9,19 @@
 #import "JMSDetailViewController.h"
 
 @interface JMSDetailViewController ()
-- (void)configureView;
+@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
 
 @implementation JMSDetailViewController
+#pragma mark - Lifecycle
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    [self configureView];
+}
 
-#pragma mark - Managing the detail item
-
+#pragma mark - Properties
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -26,6 +32,7 @@
     }
 }
 
+#pragma mark - Private
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -33,19 +40,6 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
