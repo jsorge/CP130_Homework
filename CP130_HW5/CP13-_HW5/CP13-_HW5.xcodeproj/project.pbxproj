@@ -22,6 +22,10 @@
 		939FA9BA1911D9AC0019434C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FA9991911D9AC0019434C /* UIKit.framework */; };
 		939FA9C21911D9AC0019434C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 939FA9C01911D9AC0019434C /* InfoPlist.strings */; };
 		939FA9C41911D9AC0019434C /* CP13__HW5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FA9C31911D9AC0019434C /* CP13__HW5Tests.m */; };
+		939FA9CF191200A30019434C /* JMSAzureHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FA9CE191200A30019434C /* JMSAzureHandler.m */; };
+		939FA9D6191205950019434C /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FA9D4191205950019434C /* WindowsAzureMessaging.framework */; };
+		939FA9D7191205950019434C /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FA9D5191205950019434C /* WindowsAzureMobileServices.framework */; };
+		939FA9DA191681380019434C /* JMSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FA9D9191681380019434C /* JMSModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,12 @@
 		939FA9BF1911D9AC0019434C /* CP13-_HW5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CP13-_HW5Tests-Info.plist"; sourceTree = "<group>"; };
 		939FA9C11911D9AC0019434C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		939FA9C31911D9AC0019434C /* CP13__HW5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CP13__HW5Tests.m; sourceTree = "<group>"; };
+		939FA9CD191200A30019434C /* JMSAzureHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSAzureHandler.h; sourceTree = "<group>"; };
+		939FA9CE191200A30019434C /* JMSAzureHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSAzureHandler.m; sourceTree = "<group>"; };
+		939FA9D4191205950019434C /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
+		939FA9D5191205950019434C /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
+		939FA9D8191681380019434C /* JMSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSModel.h; sourceTree = "<group>"; };
+		939FA9D9191681380019434C /* JMSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,8 @@
 				939FA9981911D9AC0019434C /* CoreGraphics.framework in Frameworks */,
 				939FA99A1911D9AC0019434C /* UIKit.framework in Frameworks */,
 				939FA9961911D9AC0019434C /* Foundation.framework in Frameworks */,
+				939FA9D6191205950019434C /* WindowsAzureMessaging.framework in Frameworks */,
+				939FA9D7191205950019434C /* WindowsAzureMobileServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +116,8 @@
 		939FA9941911D9AC0019434C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				939FA9D4191205950019434C /* WindowsAzureMessaging.framework */,
+				939FA9D5191205950019434C /* WindowsAzureMobileServices.framework */,
 				939FA9951911D9AC0019434C /* Foundation.framework */,
 				939FA9971911D9AC0019434C /* CoreGraphics.framework */,
 				939FA9991911D9AC0019434C /* UIKit.framework */,
@@ -122,6 +136,10 @@
 				939FA9AB1911D9AC0019434C /* JMSMasterViewController.m */,
 				939FA9AD1911D9AC0019434C /* JMSDetailViewController.h */,
 				939FA9AE1911D9AC0019434C /* JMSDetailViewController.m */,
+				939FA9D8191681380019434C /* JMSModel.h */,
+				939FA9D9191681380019434C /* JMSModel.m */,
+				939FA9CD191200A30019434C /* JMSAzureHandler.h */,
+				939FA9CE191200A30019434C /* JMSAzureHandler.m */,
 				939FA9B01911D9AC0019434C /* Images.xcassets */,
 				939FA99C1911D9AC0019434C /* Supporting Files */,
 			);
@@ -255,8 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939FA9DA191681380019434C /* JMSModel.m in Sources */,
 				939FA9AF1911D9AC0019434C /* JMSDetailViewController.m in Sources */,
 				939FA9AC1911D9AC0019434C /* JMSMasterViewController.m in Sources */,
+				939FA9CF191200A30019434C /* JMSAzureHandler.m in Sources */,
 				939FA9A21911D9AC0019434C /* main.m in Sources */,
 				939FA9A61911D9AC0019434C /* JMSAppDelegate.m in Sources */,
 			);
@@ -383,6 +403,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CP13-_HW5/CP13-_HW5-Prefix.pch";
 				INFOPLIST_FILE = "CP13-_HW5/CP13-_HW5-Info.plist";
@@ -396,6 +420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CP13-_HW5/CP13-_HW5-Prefix.pch";
 				INFOPLIST_FILE = "CP13-_HW5/CP13-_HW5-Info.plist";
