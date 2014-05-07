@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JMSModel;
 
 @interface JMSDetailViewController : UIViewController
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) JMSModel *detailItem;
 @end
