@@ -17,6 +17,7 @@
 static NSString *bucketName = @"picture-class1";
 static NSString *simpleDBTable = @"homework";
 static NSString *seg_showDetail = @"showDetail";
+static NSString *cellId = @"Cell";
 
 @interface JMSMasterViewController () <JMSAmazonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 @property (nonatomic, strong)NSMutableArray *objects;
@@ -28,21 +29,20 @@ static NSString *seg_showDetail = @"showDetail";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     self.navigationItem.rightBarButtonItem = addButton;
-    [self.amazonHandler allObjectsInBucket:bucketName];
     
-    self.navigationController.delegate = self;
+    [self.amazonHandler allObjectsInBucket:bucketName];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIImage *)sender
 {
     if ([segue.identifier isEqualToString:seg_showDetail]) {
-        JMSDetailViewController *destination = segue.destinationViewController;
+        UINavigationController *destNav = segue.destinationViewController;
+        JMSDetailViewController *destination = (JMSDetailViewController *)[destNav topViewController];
         destination.image = sender;
-        destination.transitioningDelegate = self;
+        destNav.transitioningDelegate = self;
     }
 }
 
@@ -77,7 +77,7 @@ static NSString *seg_showDetail = @"showDetail";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
 
     JMSModel *model = (JMSModel *)self.objects[indexPath.row];
     cell.textLabel.text = model.dataitem;
@@ -87,22 +87,6 @@ static NSString *seg_showDetail = @"showDetail";
 }
 
 #pragma mark - UITableViewDelegate
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //TODO: Delete from Amazon, then when confirmed delete from the array.
-        
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JMSModel *selectedModel = self.objects[indexPath.row];
@@ -127,6 +111,8 @@ static NSString *seg_showDetail = @"showDetail";
 #pragma mark - JMSAmazonDelegate
 - (void)amazonHandlerDidFinishUpload:(JMSAmazonHandler *)handler WithFilename:(NSString *)filename
 {
+    [self.amazonHandler clearStatus];
+    
     JMSModel *savedImage = [[JMSModel alloc] init];
     savedImage.dataitem = filename;
     savedImage.student = @"jsorge";
@@ -137,6 +123,8 @@ static NSString *seg_showDetail = @"showDetail";
 - (void)amazonHandler:(JMSAmazonHandler *)handler DatabaseInsertSucceeded:(JMSModel *)model
 {
     [self.objects insertObject:model atIndex:0];
+    NSIndexPath *topIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[topIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)amazonHandler:(JMSAmazonHandler *)handler DataBaseInsertFailedWithException:(NSException *)exception
@@ -152,7 +140,6 @@ static NSString *seg_showDetail = @"showDetail";
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"%@", info);
     [self dismissViewControllerAnimated:YES completion:^{
         NSURL *urlString = info[UIImagePickerControllerReferenceURL];
         NSString *query = [urlString query];
@@ -187,12 +174,6 @@ static NSString *seg_showDetail = @"showDetail";
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-{
-    return [JMSFadeTransitionAnimator new];
-}
-
-#pragma mark - UINavigationControllerDelegate
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
     return [JMSFadeTransitionAnimator new];
 }

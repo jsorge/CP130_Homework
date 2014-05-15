@@ -62,7 +62,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Photos" id="tQt-TN-PWz"/>
                     <connections>
-                        <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail" id="i8m-7b-j3y"/>
+                        <segue destination="OZj-R3-yDe" kind="modal" identifier="showDetail" id="i8m-7b-j3y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
@@ -90,12 +90,36 @@
                     </view>
                     <navigationItem key="navigationItem" id="cra-N8-TIN">
                         <barButtonItem key="backBarButtonItem" title="Done" id="i3E-7Y-tv3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="HQm-bp-T1m">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Ah7-4n-0Wa" id="pbj-dG-rlh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="downloadedImageView" destination="6ot-8X-cpa" id="G1P-mb-2kh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9c2-gp-qct">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OZj-R3-yDe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BFr-KU-zBq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M70-Q5-1Y1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ah7-4n-0Wa" kind="relationship" relationship="rootViewController" id="BNo-rP-wTs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFK-OP-7PC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="985" y="64"/>
         </scene>

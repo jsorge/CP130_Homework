@@ -13,10 +13,17 @@
 @end
 
 @implementation JMSDetailViewController
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.downloadedImageView.image = self.image;
+}
+
+#pragma mark - IBActions
+- (IBAction)doneButtonTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
