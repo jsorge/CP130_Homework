@@ -7,23 +7,24 @@
 //
 
 #import "JMSViewController.h"
+@import StoreKit;
 
 @interface JMSViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *purchasedLabel;
 @end
 
 @implementation JMSViewController
-
+#pragma mark - Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - IBActions
+- (IBAction)buyButtonTapped:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 @end
