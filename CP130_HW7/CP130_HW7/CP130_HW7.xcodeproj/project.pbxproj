@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		933C0F7E1929BB47008B9765 /* JMSInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 933C0F7D1929BB47008B9765 /* JMSInAppPurchaseManager.m */; };
 		939FAA8519299C050019434C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8419299C050019434C /* Foundation.framework */; };
 		939FAA8719299C050019434C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8619299C050019434C /* CoreGraphics.framework */; };
 		939FAA8919299C050019434C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8819299C050019434C /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		933C0F7C1929BB47008B9765 /* JMSInAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSInAppPurchaseManager.h; sourceTree = "<group>"; };
+		933C0F7D1929BB47008B9765 /* JMSInAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSInAppPurchaseManager.m; sourceTree = "<group>"; };
 		939FAA8119299C050019434C /* CP130_HW7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP130_HW7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939FAA8419299C050019434C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		939FAA8619299C050019434C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				939FAA9619299C050019434C /* Main.storyboard */,
 				939FAA9919299C050019434C /* JMSViewController.h */,
 				939FAA9A19299C050019434C /* JMSViewController.m */,
+				933C0F7C1929BB47008B9765 /* JMSInAppPurchaseManager.h */,
+				933C0F7D1929BB47008B9765 /* JMSInAppPurchaseManager.m */,
 				939FAA9C19299C050019434C /* Images.xcassets */,
 				939FAA8B19299C050019434C /* Supporting Files */,
 			);
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933C0F7E1929BB47008B9765 /* JMSInAppPurchaseManager.m in Sources */,
 				939FAA9B19299C050019434C /* JMSViewController.m in Sources */,
 				939FAA9119299C050019434C /* main.m in Sources */,
 				939FAA9519299C050019434C /* JMSAppDelegate.m in Sources */,
@@ -464,6 +470,7 @@
 				939FAAB519299C050019434C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		939FAAB619299C050019434C /* Build configuration list for PBXNativeTarget "CP130_HW7Tests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +479,7 @@
 				939FAAB819299C050019434C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
