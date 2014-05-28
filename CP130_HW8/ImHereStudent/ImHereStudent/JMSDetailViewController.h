@@ -1,5 +1,5 @@
 //
-//  JMSViewController.h
+//  JMSDetailViewController.h
 //  ImHereStudent
 //
 //  Created by Jared Sorge on 5/27/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JMSViewController : UIViewController
+@interface JMSDetailViewController : UIViewController
 
 @end
