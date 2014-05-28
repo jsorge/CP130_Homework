@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		933C0F7E1929BB47008B9765 /* JMSInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 933C0F7D1929BB47008B9765 /* JMSInAppPurchaseManager.m */; };
 		939FAA8519299C050019434C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8419299C050019434C /* Foundation.framework */; };
 		939FAA8719299C050019434C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8619299C050019434C /* CoreGraphics.framework */; };
 		939FAA8919299C050019434C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8819299C050019434C /* UIKit.framework */; };
@@ -21,6 +22,7 @@
 		939FAAA619299C050019434C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939FAA8819299C050019434C /* UIKit.framework */; };
 		939FAAAE19299C050019434C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 939FAAAC19299C050019434C /* InfoPlist.strings */; };
 		939FAAB019299C050019434C /* CP130_HW7Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 939FAAAF19299C050019434C /* CP130_HW7Tests.m */; };
+		93DFC827192C59E5009CB509 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DFC826192C59E5009CB509 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		933C0F7C1929BB47008B9765 /* JMSInAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSInAppPurchaseManager.h; sourceTree = "<group>"; };
+		933C0F7D1929BB47008B9765 /* JMSInAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSInAppPurchaseManager.m; sourceTree = "<group>"; };
 		939FAA8119299C050019434C /* CP130_HW7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP130_HW7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939FAA8419299C050019434C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		939FAA8619299C050019434C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +57,10 @@
 		939FAAAB19299C050019434C /* CP130_HW7Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CP130_HW7Tests-Info.plist"; sourceTree = "<group>"; };
 		939FAAAD19299C050019434C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		939FAAAF19299C050019434C /* CP130_HW7Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CP130_HW7Tests.m; sourceTree = "<group>"; };
+		93DFC819192C5603009CB509 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		93DFC81F192C564B009CB509 /* thing */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = thing; sourceTree = BUILT_PRODUCTS_DIR; };
+		93DFC822192C564B009CB509 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		93DFC826192C59E5009CB509 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 				939FAA8719299C050019434C /* CoreGraphics.framework in Frameworks */,
 				939FAA8919299C050019434C /* UIKit.framework in Frameworks */,
 				939FAA8519299C050019434C /* Foundation.framework in Frameworks */,
+				93DFC827192C59E5009CB509 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +93,8 @@
 			children = (
 				939FAA8A19299C050019434C /* CP130_HW7 */,
 				939FAAA919299C050019434C /* CP130_HW7Tests */,
+				93DFC817192C5603009CB509 /* The Thing */,
+				93DFC820192C564B009CB509 /* thing */,
 				939FAA8319299C050019434C /* Frameworks */,
 				939FAA8219299C050019434C /* Products */,
 			);
@@ -94,6 +105,7 @@
 			children = (
 				939FAA8119299C050019434C /* CP130_HW7.app */,
 				939FAAA219299C050019434C /* CP130_HW7Tests.xctest */,
+				93DFC81F192C564B009CB509 /* thing */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +113,7 @@
 		939FAA8319299C050019434C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93DFC826192C59E5009CB509 /* StoreKit.framework */,
 				939FAA8419299C050019434C /* Foundation.framework */,
 				939FAA8619299C050019434C /* CoreGraphics.framework */,
 				939FAA8819299C050019434C /* UIKit.framework */,
@@ -117,6 +130,8 @@
 				939FAA9619299C050019434C /* Main.storyboard */,
 				939FAA9919299C050019434C /* JMSViewController.h */,
 				939FAA9A19299C050019434C /* JMSViewController.m */,
+				933C0F7C1929BB47008B9765 /* JMSInAppPurchaseManager.h */,
+				933C0F7D1929BB47008B9765 /* JMSInAppPurchaseManager.m */,
 				939FAA9C19299C050019434C /* Images.xcassets */,
 				939FAA8B19299C050019434C /* Supporting Files */,
 			);
@@ -148,6 +163,38 @@
 			children = (
 				939FAAAB19299C050019434C /* CP130_HW7Tests-Info.plist */,
 				939FAAAC19299C050019434C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93DFC817192C5603009CB509 /* The Thing */ = {
+			isa = PBXGroup;
+			children = (
+				93DFC818192C5603009CB509 /* Supporting Files */,
+			);
+			path = "The Thing";
+			sourceTree = "<group>";
+		};
+		93DFC818192C5603009CB509 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93DFC819192C5603009CB509 /* ContentInfo.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93DFC820192C564B009CB509 /* thing */ = {
+			isa = PBXGroup;
+			children = (
+				93DFC821192C564B009CB509 /* Supporting Files */,
+			);
+			path = thing;
+			sourceTree = "<group>";
+		};
+		93DFC821192C564B009CB509 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93DFC822192C564B009CB509 /* ContentInfo.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -190,6 +237,21 @@
 			productReference = 939FAAA219299C050019434C /* CP130_HW7Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		93DFC81E192C564B009CB509 /* thing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93DFC823192C564B009CB509 /* Build configuration list for PBXNativeTarget "thing" */;
+			buildPhases = (
+				93DFC81D192C564B009CB509 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = thing;
+			productName = thing;
+			productReference = 93DFC81F192C564B009CB509 /* thing */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,6 +264,11 @@
 				TargetAttributes = {
 					939FAA8019299C050019434C = {
 						DevelopmentTeam = 49LQXRW3X4;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					939FAAA119299C050019434C = {
 						TestTargetID = 939FAA8019299C050019434C;
@@ -223,6 +290,7 @@
 			targets = (
 				939FAA8019299C050019434C /* CP130_HW7 */,
 				939FAAA119299C050019434C /* CP130_HW7Tests */,
+				93DFC81E192C564B009CB509 /* thing */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +314,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93DFC81D192C564B009CB509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -253,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933C0F7E1929BB47008B9765 /* JMSInAppPurchaseManager.m in Sources */,
 				939FAA9B19299C050019434C /* JMSViewController.m in Sources */,
 				939FAA9119299C050019434C /* main.m in Sources */,
 				939FAA9519299C050019434C /* JMSAppDelegate.m in Sources */,
@@ -381,6 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CP130_HW7/CP130_HW7-Prefix.pch";
 				INFOPLIST_FILE = "CP130_HW7/CP130_HW7-Info.plist";
@@ -396,6 +473,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CP130_HW7/CP130_HW7-Prefix.pch";
 				INFOPLIST_FILE = "CP130_HW7/CP130_HW7-Info.plist";
@@ -445,6 +523,30 @@
 			};
 			name = Release;
 		};
+		93DFC824192C564B009CB509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = thing/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		93DFC825192C564B009CB509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = thing/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -464,6 +566,7 @@
 				939FAAB519299C050019434C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		939FAAB619299C050019434C /* Build configuration list for PBXNativeTarget "CP130_HW7Tests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +575,16 @@
 				939FAAB819299C050019434C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93DFC823192C564B009CB509 /* Build configuration list for PBXNativeTarget "thing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93DFC824192C564B009CB509 /* Debug */,
+				93DFC825192C564B009CB509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

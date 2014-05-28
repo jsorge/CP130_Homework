@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIs-Df-uja">
-                                <rect key="frame" x="115" y="170" width="91" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIs-Df-uja">
+                                <rect key="frame" x="115" y="168" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Buy the thing">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,7 +26,7 @@
                                     <action selector="buyButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eLU-dt-JCw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 things purchased." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGg-Nu-OzB">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 things purchased." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGg-Nu-OzB">
                                 <rect key="frame" x="84" y="392" width="152" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,13 +35,23 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qGg-Nu-OzB" secondAttribute="trailing" constant="84" id="2xb-7b-Mko"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qGg-Nu-OzB" secondAttribute="bottom" constant="155" id="ATR-kO-H98"/>
+                            <constraint firstAttribute="trailing" secondItem="tIs-Df-uja" secondAttribute="trailing" constant="114" id="N4n-9f-WgX"/>
+                            <constraint firstItem="tIs-Df-uja" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="115" id="hwd-fr-ppY"/>
+                            <constraint firstItem="tIs-Df-uja" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="148" id="mpS-J6-6G2"/>
+                            <constraint firstItem="qGg-Nu-OzB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="84" id="x0q-Sn-R48"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="purchasedLabel" destination="qGg-Nu-OzB" id="Zwt-ff-hDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="269" y="24"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
