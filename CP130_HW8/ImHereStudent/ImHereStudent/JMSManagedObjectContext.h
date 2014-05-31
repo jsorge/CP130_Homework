@@ -32,4 +32,10 @@ extern NSString *const ContextNeedsUIUpdateNotification;
  */
 + (BOOL)storeNeedsMigrationAtURL:(NSURL *)storeURL modelName:(NSString *)modelName;
 
+/**
+ *  This method must be overridden by a subclass. Do not call super.
+ *
+ *  @return The URL where the datastore is to be kept.
+ */
++ (NSURL *)storeURL;
 @end

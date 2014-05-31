@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931E96C21937E9C20014950B /* JMSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931E96C11937E9C20014950B /* JMSProfileViewController.m */; };
+		936E0DF31937A48F0050CBBE /* JMSStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936E0DF21937A48F0050CBBE /* JMSStudentListViewController.m */; };
+		936E0DF61937A8930050CBBE /* JMSFRCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 936E0DF51937A8930050CBBE /* JMSFRCDelegate.m */; };
 		93B3C0FD19357F140035D532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B3C0FC19357F140035D532 /* Foundation.framework */; };
 		93B3C0FF19357F140035D532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B3C0FE19357F140035D532 /* CoreGraphics.framework */; };
 		93B3C10119357F140035D532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B3C10019357F140035D532 /* UIKit.framework */; };
@@ -41,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		931E96C01937E9C20014950B /* JMSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSProfileViewController.h; sourceTree = "<group>"; };
+		931E96C11937E9C20014950B /* JMSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSProfileViewController.m; sourceTree = "<group>"; };
+		936E0DF11937A48F0050CBBE /* JMSStudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSStudentListViewController.h; sourceTree = "<group>"; };
+		936E0DF21937A48F0050CBBE /* JMSStudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSStudentListViewController.m; sourceTree = "<group>"; };
+		936E0DF41937A8930050CBBE /* JMSFRCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSFRCDelegate.h; sourceTree = "<group>"; };
+		936E0DF51937A8930050CBBE /* JMSFRCDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSFRCDelegate.m; sourceTree = "<group>"; };
 		93B3C0F919357F140035D532 /* ImHereStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImHereStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B3C0FC19357F140035D532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		93B3C0FE19357F140035D532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +108,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93508A991938EBFB007B4593 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93B3C14419359B000035D532 /* JMSMasterViewController.h */,
+				93B3C14519359B000035D532 /* JMSMasterViewController.m */,
+				93B3C14719359B1E0035D532 /* JMSDetailViewController.h */,
+				93B3C14819359B1E0035D532 /* JMSDetailViewController.m */,
+				936E0DF11937A48F0050CBBE /* JMSStudentListViewController.h */,
+				936E0DF21937A48F0050CBBE /* JMSStudentListViewController.m */,
+				931E96C01937E9C20014950B /* JMSProfileViewController.h */,
+				931E96C11937E9C20014950B /* JMSProfileViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		93B3C0F019357F140035D532 = {
 			isa = PBXGroup;
 			children = (
@@ -135,10 +159,7 @@
 				93B3C10B19357F140035D532 /* JMSAppDelegate.h */,
 				93B3C10C19357F140035D532 /* JMSAppDelegate.m */,
 				93B3C10E19357F140035D532 /* Main.storyboard */,
-				93B3C14419359B000035D532 /* JMSMasterViewController.h */,
-				93B3C14519359B000035D532 /* JMSMasterViewController.m */,
-				93B3C14719359B1E0035D532 /* JMSDetailViewController.h */,
-				93B3C14819359B1E0035D532 /* JMSDetailViewController.m */,
+				93508A991938EBFB007B4593 /* View Controllers */,
 				93B3C13719357F810035D532 /* Model */,
 				93B3C11419357F140035D532 /* Images.xcassets */,
 				93B3C10319357F140035D532 /* Supporting Files */,
@@ -149,6 +170,8 @@
 		93B3C10319357F140035D532 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				936E0DF41937A8930050CBBE /* JMSFRCDelegate.h */,
+				936E0DF51937A8930050CBBE /* JMSFRCDelegate.m */,
 				93B3C10419357F140035D532 /* ImHereStudent-Info.plist */,
 				93B3C10519357F140035D532 /* InfoPlist.strings */,
 				93B3C10819357F140035D532 /* main.m */,
@@ -179,8 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				93B3C13819357F910035D532 /* ImHereModel.xcdatamodeld */,
-				93B3C14D1935A16E0035D532 /* JMSStudent.h */,
-				93B3C14E1935A16E0035D532 /* JMSStudent.m */,
 				93B3C14A1935A16D0035D532 /* JMSAttendance.h */,
 				93B3C14B1935A16D0035D532 /* JMSAttendance.m */,
 				93B3C141193581650035D532 /* JMSImHeereManagedObjectContext.h */,
@@ -189,6 +210,8 @@
 				93B3C13219357F730035D532 /* JMSManagedObject.m */,
 				93B3C13319357F730035D532 /* JMSManagedObjectContext.h */,
 				93B3C13419357F730035D532 /* JMSManagedObjectContext.m */,
+				93B3C14D1935A16E0035D532 /* JMSStudent.h */,
+				93B3C14E1935A16E0035D532 /* JMSStudent.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -295,8 +318,11 @@
 				93B3C10919357F140035D532 /* main.m in Sources */,
 				93B3C13619357F730035D532 /* JMSManagedObjectContext.m in Sources */,
 				93B3C14919359B1E0035D532 /* JMSDetailViewController.m in Sources */,
+				936E0DF31937A48F0050CBBE /* JMSStudentListViewController.m in Sources */,
 				93B3C10D19357F140035D532 /* JMSAppDelegate.m in Sources */,
+				931E96C21937E9C20014950B /* JMSProfileViewController.m in Sources */,
 				93B3C14619359B000035D532 /* JMSMasterViewController.m in Sources */,
+				936E0DF61937A8930050CBBE /* JMSFRCDelegate.m in Sources */,
 				93B3C13519357F730035D532 /* JMSManagedObject.m in Sources */,
 				93B3C14C1935A16D0035D532 /* JMSAttendance.m in Sources */,
 				93B3C143193581650035D532 /* JMSImHeereManagedObjectContext.m in Sources */,
@@ -505,6 +531,7 @@
 				93B3C12D19357F140035D532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93B3C12E19357F140035D532 /* Build configuration list for PBXNativeTarget "ImHereStudentTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +540,7 @@
 				93B3C13019357F140035D532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JMSStudent;
 
 @interface JMSMasterViewController : UIViewController
-
+@property (nonatomic, strong)JMSStudent *student;
 @end

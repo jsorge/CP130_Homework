@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "JMSManagedObject.h"
 
-extern NSString *const JMSAttendanceNameKEY;
-extern NSString *const JMSAttendanceIdKEY;
-extern NSString *const JMSAttendancePictureKEY;
-extern NSString *const JMSAttendanceAttendedClassesKEY;
+extern NSString *const JMSAttendanceClassDateKEY;
+extern NSString *const JMSAttendanceConfirmedWithTeacherKEY;
+extern NSString *const JMSAttendanceStudentKEY;
 
 @class JMSStudent;
 
@@ -21,5 +20,6 @@ extern NSString *const JMSAttendanceAttendedClassesKEY;
 @property (nonatomic, retain) NSDate * classDate;
 @property (nonatomic) BOOL confirmedWithTeacher;
 @property (nonatomic, retain) JMSStudent *student;
+@property (nonatomic, readonly)NSString *confirmedString;
 
 @end

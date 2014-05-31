@@ -9,15 +9,28 @@
 #import "JMSAttendance.h"
 #import "JMSStudent.h"
 
-NSString *const JMSAttendanceNameKEY = @"name";
-NSString *const JMSAttendanceIdKEY = @"id";
-NSString *const JMSAttendancePictureKEY = @"picture";
-NSString *const JMSAttendanceAttendedClassesKEY = @"attendedClasses";
+NSString *const JMSAttendanceClassDateKEY = @"classDate";
+NSString *const JMSAttendanceConfirmedWithTeacherKEY = @"confirmedWithTeacher";
+NSString *const JMSAttendanceStudentKEY = @"student";
 
 @implementation JMSAttendance
 
 @dynamic classDate;
 @dynamic confirmedWithTeacher;
 @dynamic student;
+
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    
+    self.confirmedWithTeacher = NO;
+    self.classDate = [NSDate date];
+}
+
+- (NSString *)confirmedString
+{
+    NSString *status = self.confirmedWithTeacher ? @"Confirmed" : @"Not Confirmed";
+    return status;
+}
 
 @end

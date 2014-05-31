@@ -64,6 +64,12 @@ NSString *const ContextNeedsUIUpdateNotification = @"contextNeedsUIUpdate";
     return !compatible;
 }
 
++ (NSURL *)storeURL
+{
+    [NSException raise:@"JMSException" format:@"This method must be overridden by a subclass."];
+    return nil;
+}
+
 #pragma mark - Private
 - (instancetype)initWithPersistentStoreCoordinator:(NSPersistentStoreCoordinator *)coordinator
 {

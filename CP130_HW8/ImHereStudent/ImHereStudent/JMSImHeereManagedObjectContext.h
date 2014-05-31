@@ -10,6 +10,4 @@
 extern NSString *imHereModelName;
 
 @interface JMSImHeereManagedObjectContext : JMSManagedObjectContext
-#pragma mark - API
-+ (NSURL *)storeURL;
 @end

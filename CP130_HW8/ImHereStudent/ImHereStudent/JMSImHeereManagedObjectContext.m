@@ -7,11 +7,10 @@
 //
 
 #import "JMSImHeereManagedObjectContext.h"
-NSString *imHereModelName = @"GhostPostCoreDataModel";
+NSString *imHereModelName = @"ImHereModel";
 
 @implementation JMSImHeereManagedObjectContext
 
-#pragma mark - API
 + (NSURL *)storeURL
 {
     NSArray *locations = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];

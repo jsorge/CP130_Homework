@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JMSAttendance.h"
 
 @interface JMSDetailViewController : UIViewController
-
+@property (nonatomic, strong)JMSAttendance *attendanceRecord;
 @end

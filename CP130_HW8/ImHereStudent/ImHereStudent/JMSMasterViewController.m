@@ -9,13 +9,17 @@
 #import "JMSMasterViewController.h"
 #import "JMSStudent.h"
 #import "JMSImHeereManagedObjectContext.h"
+#import "JMSAttendance.h"
+#import "JMSProfileViewController.h"
+#import "JMSDetailViewController.h"
 
-@import CoreData;
+static NSString *const seg_showAttendance = @"seg_showAttendance";
+static NSString *const seg_showProfile = @"seg_showProfile";
 
-@interface JMSMasterViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface JMSMasterViewController () <UITableViewDataSource, UITableViewDelegate, JMSProfileDelegate>
 @property (nonatomic, weak)IBOutlet UITableView *tableView;
-@property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, strong)JMSImHeereManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong)NSDateFormatter *dateFormatter;
+@property (nonatomic, strong)NSMutableArray *classesAttended;
 @end
 
 @implementation JMSMasterViewController
@@ -26,29 +30,63 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    self.title = self.student.name;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:seg_showAttendance]) {
+        NSAssert([sender isKindOfClass:[JMSAttendance class]], @"The sender for segue %@ must be an Attendance object", seg_showAttendance);
+        
+        JMSDetailViewController *dest = (JMSDetailViewController *)segue.destinationViewController;
+        dest.attendanceRecord = sender;
+    } else if ([segue.identifier isEqualToString:seg_showProfile]) {
+        NSAssert([sender isKindOfClass:[JMSStudent class]], @"The sendor for segue %@ must be a Student object.", seg_showProfile);
+        
+        UINavigationController *nav = segue.destinationViewController;
+        JMSProfileViewController *dest = (JMSProfileViewController *)nav.topViewController;
+        dest.student = sender;
+        dest.delegate = self;
+    }
 }
 
 #pragma mark - Properties
-- (NSFetchedResultsController *)fetchedResultsController
+- (NSDateFormatter *)dateFormatter
 {
-    if (!_fetchedResultsController) {
-        NSFetchRequest *allObjectsFech = [JMSStudent fetchRequest];
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:allObjectsFech
-                                                                        managedObjectContext:self.managedObjectContext
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     }
-    return _fetchedResultsController;
+    return _dateFormatter;
 }
 
-- (JMSImHeereManagedObjectContext *)managedObjectContext
+- (NSMutableArray *)classesAttended
 {
-    if (!_managedObjectContext) {
-        _managedObjectContext = [JMSImHeereManagedObjectContext createContextWithStoreURL:[JMSImHeereManagedObjectContext storeURL]
-                                                                        ubiquityStoreName:nil
-                                                                                modelName:imHereModelName];
+    if (!_classesAttended) {
+        _classesAttended = [[self.student.attendedClasses allObjects] mutableCopy];
     }
-    return _managedObjectContext;
+    return _classesAttended;
+}
+
+#pragma mark - IBActions
+- (IBAction)addButtonTapped:(id)sender
+{
+    JMSAttendance *newAttendance = [JMSAttendance newInstanceInManagedObjectContext:self.student.managedObjectContext];
+    [self.student addAttendedClassesObject:newAttendance];
+    
+    NSError *saveError;
+    if (![self.student.managedObjectContext save:&saveError]) {
+        NSLog(@"Error saving: %@", saveError);
+    } else {
+        [self.classesAttended insertObject:newAttendance atIndex:0];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (IBAction)profileButtonTapped:(id)sender
+{
+    [self performSegueWithIdentifier:seg_showProfile sender:self.student];
 }
 
 #pragma mark - UITableViewDataSource
@@ -59,13 +97,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.fetchedResultsController fetchedObjects] count];
+    return [self.classesAttended count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"attendedCell";
+    static NSString *const cellId = @"attendedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    JMSAttendance *attendance = self.classesAttended[indexPath.row];
+    
+    cell.textLabel.text = [self.dateFormatter stringFromDate:attendance.classDate];
+    cell.detailTextLabel.text = attendance.confirmedString;
     
     return cell;
 }
@@ -73,7 +116,16 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    JMSAttendance *selectedAttendance = self.classesAttended[indexPath.row];
     
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:seg_showAttendance sender:selectedAttendance];
+}
+
+#pragma mark - JMSProfileDelegate
+- (void)profileViewDismissed:(JMSProfileViewController *)profileVC
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
