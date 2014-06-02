@@ -24,7 +24,7 @@ NSString *const JMSAttendanceStudentKEY = @"student";
 {
     [super awakeFromInsert];
     
-    self.confirmedWithTeacher = NO;
+    self.confirmedWithTeacher = YES;
     self.classDate = [NSDate today];
 }
 
