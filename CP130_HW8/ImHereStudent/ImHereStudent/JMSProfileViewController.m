@@ -8,14 +8,18 @@
 
 #import "JMSProfileViewController.h"
 
-@interface JMSProfileViewController () <UITextFieldDelegate>
+@interface JMSProfileViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (nonatomic, weak)IBOutlet UITextField *nameField;
 @property (nonatomic, weak)IBOutlet UITextField *studentIDField;
 @property (nonatomic, weak)IBOutlet UIImageView *avatarImageView;
 @property (nonatomic, weak)IBOutlet UIScrollView *scrollview;
 @property (nonatomic, weak)IBOutlet UILabel *noAvatarLabel;
+
 @property (nonatomic, strong)UIToolbar *accessoryView;
 @property (nonatomic, weak)UITextField *activeTextField;
+@property (nonatomic)BOOL hasCamera;
+@property (strong, nonatomic)UIImagePickerController *imagePicker;
+@property (strong, nonatomic)UIActionSheet *imagePickerSheet;
 @end
 
 @implementation JMSProfileViewController
@@ -48,6 +52,8 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    self.hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
 - (void)dealloc
@@ -83,6 +89,27 @@
         _accessoryView.items = @[fixedSpace, previousButton, fixedSpace, nextButton, flexiSpace, doneButton];
     }
     return _accessoryView;
+}
+
+
+- (UIImagePickerController *)imagePicker
+{
+    if (!_imagePicker) {
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+    }
+    return _imagePicker;
+}
+- (UIActionSheet *)imagePickerSheet
+{
+    if (!_imagePickerSheet) {
+        _imagePickerSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                        delegate:self
+                                               cancelButtonTitle:@"Cancel"
+                                          destructiveButtonTitle:nil
+                                               otherButtonTitles:@"Take Photo", @"Use Existing", nil];
+    }
+    return _imagePickerSheet;
 }
 
 #pragma mark - IBActions
@@ -148,6 +175,40 @@
     self.activeTextField = nil;
 }
 
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *pickedImage = info[UIImagePickerControllerEditedImage];
+    if (!pickedImage) {
+        pickedImage = info[UIImagePickerControllerOriginalImage];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.avatarImageView.image = pickedImage;
+        [self updateNoAvatarLabelVisibility:NO];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet == self.imagePickerSheet) {
+        if (buttonIndex == 0) {
+            //Camera
+            [self showImagePickerViewWithType:UIImagePickerControllerSourceTypeCamera];
+        } else if (buttonIndex == 1) {
+            //Photo Library
+            [self showImagePickerViewWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+        }
+    }
+}
+
+
 #pragma mark - Private
 - (void)keyboardDoneButton
 {
@@ -174,13 +235,18 @@
 
 - (void)addOrReplaceImage:(id)sender
 {
-    NSLog(@"label tapped");
+    if (self.hasCamera) {
+        [self.imagePickerSheet showInView:self.view];
+    } else {
+        [self showImagePickerViewWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
 }
 
 - (void)updateNoAvatarLabelVisibility:(BOOL)visible
 {
     if (!visible) {
         self.avatarImageView.hidden = NO;
+        [self.noAvatarLabel setUserInteractionEnabled:NO];
         self.noAvatarLabel.hidden = YES;
     } else {
         self.avatarImageView.hidden = YES;
@@ -190,6 +256,12 @@
         [self.noAvatarLabel setUserInteractionEnabled:YES];
         [self.noAvatarLabel addGestureRecognizer:labelTap];
     }
+}
+
+- (void)showImagePickerViewWithType:(UIImagePickerControllerSourceType)sourceType
+{
+    self.imagePicker.sourceType = sourceType;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 @end
