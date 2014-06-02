@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		931E96C21937E9C20014950B /* JMSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931E96C11937E9C20014950B /* JMSProfileViewController.m */; };
+		9344FAED19398DA60086BB82 /* JMSBTCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9344FAEC19398DA60086BB82 /* JMSBTCentral.m */; };
+		9344FAF0193B6E060086BB82 /* NSDate+Today.m in Sources */ = {isa = PBXBuildFile; fileRef = 9344FAEF193B6E060086BB82 /* NSDate+Today.m */; };
 		936E0DF31937A48F0050CBBE /* JMSStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936E0DF21937A48F0050CBBE /* JMSStudentListViewController.m */; };
 		936E0DF61937A8930050CBBE /* JMSFRCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 936E0DF51937A8930050CBBE /* JMSFRCDelegate.m */; };
 		93B3C0FD19357F140035D532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B3C0FC19357F140035D532 /* Foundation.framework */; };
@@ -46,6 +48,10 @@
 /* Begin PBXFileReference section */
 		931E96C01937E9C20014950B /* JMSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSProfileViewController.h; sourceTree = "<group>"; };
 		931E96C11937E9C20014950B /* JMSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSProfileViewController.m; sourceTree = "<group>"; };
+		9344FAEB19398DA60086BB82 /* JMSBTCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSBTCentral.h; sourceTree = "<group>"; };
+		9344FAEC19398DA60086BB82 /* JMSBTCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSBTCentral.m; sourceTree = "<group>"; };
+		9344FAEE193B6E060086BB82 /* NSDate+Today.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Today.h"; sourceTree = "<group>"; };
+		9344FAEF193B6E060086BB82 /* NSDate+Today.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Today.m"; sourceTree = "<group>"; };
 		936E0DF11937A48F0050CBBE /* JMSStudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSStudentListViewController.h; sourceTree = "<group>"; };
 		936E0DF21937A48F0050CBBE /* JMSStudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSStudentListViewController.m; sourceTree = "<group>"; };
 		936E0DF41937A8930050CBBE /* JMSFRCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSFRCDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +176,10 @@
 		93B3C10319357F140035D532 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9344FAEE193B6E060086BB82 /* NSDate+Today.h */,
+				9344FAEF193B6E060086BB82 /* NSDate+Today.m */,
+				9344FAEB19398DA60086BB82 /* JMSBTCentral.h */,
+				9344FAEC19398DA60086BB82 /* JMSBTCentral.m */,
 				936E0DF41937A8930050CBBE /* JMSFRCDelegate.h */,
 				936E0DF51937A8930050CBBE /* JMSFRCDelegate.m */,
 				93B3C10419357F140035D532 /* ImHereStudent-Info.plist */,
@@ -318,6 +328,7 @@
 				93B3C10919357F140035D532 /* main.m in Sources */,
 				93B3C13619357F730035D532 /* JMSManagedObjectContext.m in Sources */,
 				93B3C14919359B1E0035D532 /* JMSDetailViewController.m in Sources */,
+				9344FAED19398DA60086BB82 /* JMSBTCentral.m in Sources */,
 				936E0DF31937A48F0050CBBE /* JMSStudentListViewController.m in Sources */,
 				93B3C10D19357F140035D532 /* JMSAppDelegate.m in Sources */,
 				931E96C21937E9C20014950B /* JMSProfileViewController.m in Sources */,
@@ -327,6 +338,7 @@
 				93B3C14C1935A16D0035D532 /* JMSAttendance.m in Sources */,
 				93B3C143193581650035D532 /* JMSImHeereManagedObjectContext.m in Sources */,
 				93B3C13A19357F910035D532 /* ImHereModel.xcdatamodeld in Sources */,
+				9344FAF0193B6E060086BB82 /* NSDate+Today.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

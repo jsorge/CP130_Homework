@@ -8,6 +8,7 @@
 
 #import "JMSStudent.h"
 #import "JMSAttendance.h"
+#import "NSDate+Today.h"
 
 NSString *const JMSStudentNameKEY = @"name";
 NSString *const JMSStudentIdKEY = @"id";
@@ -20,5 +21,18 @@ NSString *const JMSStudentAttendedClassesKEY = @"attendedClasses";
 @dynamic id;
 @dynamic picture;
 @dynamic attendedClasses;
+
+- (BOOL)canCheckIn
+{
+    NSDate *today = [NSDate today];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@ AND %K = %@", JMSAttendanceStudentKEY, self, JMSAttendanceClassDateKEY, today];
+    NSArray *checkedInToday = [JMSAttendance allInstancesWithPredicate:predicate inContext:self.managedObjectContext];
+    
+    if (checkedInToday.count == 0) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 @end

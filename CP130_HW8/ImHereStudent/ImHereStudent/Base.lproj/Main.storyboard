@@ -125,6 +125,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="checkInButton" destination="qma-7g-aSC" id="Crd-bA-RkI"/>
                         <outlet property="tableView" destination="pgu-To-uSk" id="HOM-JU-cNo"/>
                         <segue destination="v3g-Xp-skD" kind="modal" identifier="seg_showProfile" id="Amg-wg-6Kt"/>
                         <segue destination="w5z-qB-lcv" kind="push" identifier="seg_showAttendance" id="T7d-yx-BJT"/>
@@ -132,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="-208"/>
+            <point key="canvasLocation" x="758" y="-224"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="p3A-1b-XhV">
@@ -177,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bng-Te-vU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="-200"/>
+            <point key="canvasLocation" x="1271" y="-224"/>
         </scene>
         <!--Profile View Controller - Edit Profile-->
         <scene sceneID="f8D-T2-UDG">
@@ -308,7 +309,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iym-d8-iZ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-208" y="138"/>
+            <point key="canvasLocation" x="-260" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lg4-59-xyu">

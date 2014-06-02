@@ -12,14 +12,19 @@
 #import "JMSAttendance.h"
 #import "JMSProfileViewController.h"
 #import "JMSDetailViewController.h"
+#import "JMSBTCentral.h"
 
 static NSString *const seg_showAttendance = @"seg_showAttendance";
 static NSString *const seg_showProfile = @"seg_showProfile";
+static NSString *const bt_attendanceService = @"BAD8";
+static NSString *const bt_attendanceReadCharacteristic = @"BADA";
 
-@interface JMSMasterViewController () <UITableViewDataSource, UITableViewDelegate, JMSProfileDelegate>
+@interface JMSMasterViewController () <UITableViewDataSource, UITableViewDelegate, JMSProfileDelegate, JMSBTCentralDelegate>
 @property (nonatomic, weak)IBOutlet UITableView *tableView;
+@property (nonatomic, weak)IBOutlet UIBarButtonItem *checkInButton;
 @property (nonatomic, strong)NSDateFormatter *dateFormatter;
 @property (nonatomic, strong)NSMutableArray *classesAttended;
+@property (nonatomic, strong)JMSBTCentral *bluetoothCentral;
 @end
 
 @implementation JMSMasterViewController
@@ -32,6 +37,12 @@ static NSString *const seg_showProfile = @"seg_showProfile";
     self.tableView.dataSource = self;
     
     self.title = self.student.name;
+    
+    if (self.student.canCheckIn) {
+        [self.checkInButton setEnabled:YES];
+    } else {
+        [self.checkInButton setEnabled:NO];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -69,19 +80,20 @@ static NSString *const seg_showProfile = @"seg_showProfile";
     return _classesAttended;
 }
 
+- (JMSBTCentral *)bluetoothCentral
+{
+    if (!_bluetoothCentral) {
+        _bluetoothCentral = [[JMSBTCentral alloc] initWithDelegate:self
+                                                         serviceID:bt_attendanceService
+                                                  characteristicID:bt_attendanceReadCharacteristic];
+    }
+    return _bluetoothCentral;
+}
+
 #pragma mark - IBActions
 - (IBAction)addButtonTapped:(id)sender
 {
-    JMSAttendance *newAttendance = [JMSAttendance newInstanceInManagedObjectContext:self.student.managedObjectContext];
-    [self.student addAttendedClassesObject:newAttendance];
-    
-    NSError *saveError;
-    if (![self.student.managedObjectContext save:&saveError]) {
-        NSLog(@"Error saving: %@", saveError);
-    } else {
-        [self.classesAttended insertObject:newAttendance atIndex:0];
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
+    [self.bluetoothCentral startUpdating];
 }
 
 - (IBAction)profileButtonTapped:(id)sender
@@ -128,4 +140,25 @@ static NSString *const seg_showProfile = @"seg_showProfile";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - JMSBTCentralDelegate
+- (void)jmsCentralDidDiscoverCharacteristic:(CBCharacteristic *)characteristic
+{
+    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:bt_attendanceReadCharacteristic]] && self.student.canCheckIn) {
+        [self.bluetoothCentral stopUpdating];
+        
+        JMSAttendance *newAttendance = [JMSAttendance newInstanceInManagedObjectContext:self.student.managedObjectContext];
+        [self.student addAttendedClassesObject:newAttendance];
+        
+        NSError *saveError;
+        if (![self.student.managedObjectContext save:&saveError]) {
+            NSLog(@"Error saving: %@", saveError);
+        } else {
+            [self.classesAttended insertObject:newAttendance atIndex:0];
+            [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.checkInButton setEnabled:NO];
+        }
+        
+        self.bluetoothCentral = nil;
+    }
+}
 @end

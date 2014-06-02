@@ -8,6 +8,7 @@
 
 #import "JMSAttendance.h"
 #import "JMSStudent.h"
+#import "NSDate+Today.h"
 
 NSString *const JMSAttendanceClassDateKEY = @"classDate";
 NSString *const JMSAttendanceConfirmedWithTeacherKEY = @"confirmedWithTeacher";
@@ -24,7 +25,7 @@ NSString *const JMSAttendanceStudentKEY = @"student";
     [super awakeFromInsert];
     
     self.confirmedWithTeacher = NO;
-    self.classDate = [NSDate date];
+    self.classDate = [NSDate today];
 }
 
 - (NSString *)confirmedString

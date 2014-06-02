@@ -21,6 +21,7 @@ extern NSString *const JMSStudentAttendedClassesKEY;
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSData * picture;
 @property (nonatomic, retain) NSSet *attendedClasses;
+@property (nonatomic, readonly)BOOL canCheckIn;
 @end
 
 @interface JMSStudent (CoreDataGeneratedAccessors)
