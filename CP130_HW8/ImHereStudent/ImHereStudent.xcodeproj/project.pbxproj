@@ -48,6 +48,7 @@
 /* Begin PBXFileReference section */
 		931E96C01937E9C20014950B /* JMSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSProfileViewController.h; sourceTree = "<group>"; };
 		931E96C11937E9C20014950B /* JMSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSProfileViewController.m; sourceTree = "<group>"; };
+		932434B0193E725D004283B4 /* ImHereModel v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ImHereModel v2.xcdatamodel"; sourceTree = "<group>"; };
 		9344FAEB19398DA60086BB82 /* JMSBTCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSBTCentral.h; sourceTree = "<group>"; };
 		9344FAEC19398DA60086BB82 /* JMSBTCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSBTCentral.m; sourceTree = "<group>"; };
 		9344FAEE193B6E060086BB82 /* NSDate+Today.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Today.h"; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		93B3C14B1935A16D0035D532 /* JMSAttendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSAttendance.m; sourceTree = "<group>"; };
 		93B3C14D1935A16E0035D532 /* JMSStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSStudent.h; sourceTree = "<group>"; };
 		93B3C14E1935A16E0035D532 /* JMSStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSStudent.m; sourceTree = "<group>"; };
+		93CA2E6C193ECDA40091DF71 /* ImHereModel v3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ImHereModel v3.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -560,9 +562,11 @@
 		93B3C13819357F910035D532 /* ImHereModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				93CA2E6C193ECDA40091DF71 /* ImHereModel v3.xcdatamodel */,
+				932434B0193E725D004283B4 /* ImHereModel v2.xcdatamodel */,
 				93B3C13919357F910035D532 /* ImHereModel.xcdatamodel */,
 			);
-			currentVersion = 93B3C13919357F910035D532 /* ImHereModel.xcdatamodel */;
+			currentVersion = 932434B0193E725D004283B4 /* ImHereModel v2.xcdatamodel */;
 			path = ImHereModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

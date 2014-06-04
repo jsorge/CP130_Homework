@@ -33,7 +33,7 @@
     self.studentIDField.text = self.student.id;
     
     if (self.student.picture != nil) {
-        self.noAvatarLabel.hidden = YES;
+        [self updateNoAvatarLabelVisibility:NO];
         self.avatarImageView.image = [UIImage imageWithData:self.student.picture];
     } else {
         [self updateNoAvatarLabelVisibility:YES];
@@ -244,17 +244,24 @@
 
 - (void)updateNoAvatarLabelVisibility:(BOOL)visible
 {
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                               action:@selector(addOrReplaceImage:)];
     if (!visible) {
+        self.noAvatarLabel.hidden = YES;
+        
+        [self.avatarImageView setUserInteractionEnabled:YES];
+        [self.avatarImageView addGestureRecognizer:tapGesture];
+        
         self.avatarImageView.hidden = NO;
         [self.noAvatarLabel setUserInteractionEnabled:NO];
         self.noAvatarLabel.hidden = YES;
     } else {
+        [self.avatarImageView setGestureRecognizers:NO];
         self.avatarImageView.hidden = YES;
         self.noAvatarLabel.hidden = NO;
-        UITapGestureRecognizer *labelTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                   action:@selector(addOrReplaceImage:)];
+        
         [self.noAvatarLabel setUserInteractionEnabled:YES];
-        [self.noAvatarLabel addGestureRecognizer:labelTap];
+        [self.noAvatarLabel addGestureRecognizer:tapGesture];
     }
 }
 

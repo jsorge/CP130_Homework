@@ -8,7 +8,7 @@
     <entity name="JMSStudent" representedClassName="JMSStudent" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="picture" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="attendedClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JMSAttendance" inverseName="student" inverseEntity="JMSAttendance" syncable="YES"/>
     </entity>
     <elements>
