@@ -14,12 +14,14 @@
 #import "JMSDetailViewController.h"
 #import "JMSBTCentral.h"
 
+@import MessageUI;
+
 static NSString *const seg_showAttendance = @"seg_showAttendance";
 static NSString *const seg_showProfile = @"seg_showProfile";
 static NSString *const bt_attendanceService = @"BAD8";
 static NSString *const bt_attendanceReadCharacteristic = @"BADA";
 
-@interface JMSMasterViewController () <UITableViewDataSource, UITableViewDelegate, JMSProfileDelegate, JMSBTCentralDelegate>
+@interface JMSMasterViewController () <UITableViewDataSource, UITableViewDelegate, JMSProfileDelegate, JMSBTCentralDelegate, MFMailComposeViewControllerDelegate>
 @property (nonatomic, weak)IBOutlet UITableView *tableView;
 @property (nonatomic, weak)IBOutlet UIBarButtonItem *checkInButton;
 @property (nonatomic, strong)NSDateFormatter *dateFormatter;
@@ -101,6 +103,11 @@ static NSString *const bt_attendanceReadCharacteristic = @"BADA";
     [self performSegueWithIdentifier:seg_showProfile sender:self.student];
 }
 
+- (IBAction)actionButtonTapped:(id)sender
+{
+    [self composeEmailOfStudentInfo];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -161,4 +168,21 @@ static NSString *const bt_attendanceReadCharacteristic = @"BADA";
         self.bluetoothCentral = nil;
     }
 }
+
+#pragma mark - MFMailComposeViewControllerDelegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Private
+- (void)composeEmailOfStudentInfo
+{
+    MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+    [mailViewController setMessageBody:self.student.emailDescription isHTML:YES];
+    mailViewController.mailComposeDelegate = self;
+    
+    [self presentViewController:mailViewController animated:YES completion:nil];
+}
+
 @end

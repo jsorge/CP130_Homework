@@ -22,6 +22,7 @@ NSString *const JMSStudentAttendedClassesKEY = @"attendedClasses";
 @dynamic picture;
 @dynamic attendedClasses;
 
+#pragma mark - Properties
 - (BOOL)canCheckIn
 {
     NSDate *today = [NSDate today];
@@ -33,6 +34,25 @@ NSString *const JMSStudentAttendedClassesKEY = @"attendedClasses";
     }
     
     return NO;
+}
+
+#pragma mark - API
+- (NSString *)emailDescription
+{
+    NSString *emailText;
+    
+    emailText = [NSString stringWithFormat:@"%@ (ID - %@)<p>", self.name, self.id];
+    
+    NSArray *classesAttended = self.attendedClasses.allObjects;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    for (JMSAttendance *class in classesAttended) {
+        emailText = [emailText stringByAppendingString:[NSString stringWithFormat:@"%@<br />", [dateFormatter stringFromDate:class.classDate]]];
+    }
+    
+    return emailText;
 }
 
 @end

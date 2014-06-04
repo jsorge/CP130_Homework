@@ -113,7 +113,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AI1-d2-gch"/>
-                                    <barButtonItem systemItem="action" id="7Ev-gp-MpD"/>
+                                    <barButtonItem systemItem="action" id="7Ev-gp-MpD">
+                                        <connections>
+                                            <action selector="actionButtonTapped:" destination="vXZ-lx-hvc" id="0gA-jl-DcD"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

@@ -31,4 +31,6 @@ extern NSString *const JMSStudentAttendedClassesKEY;
 - (void)addAttendedClasses:(NSSet *)values;
 - (void)removeAttendedClasses:(NSSet *)values;
 
+#pragma mark - API
+- (NSString *)emailDescription;
 @end
