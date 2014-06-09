@@ -66,7 +66,7 @@ static NSString *const webRoot = @"Website";
 }
 
 
-// Get IP Address
+// Get IP Address - Found at http://stackoverflow.com/questions/7072989/iphone-ipad-osx-how-to-get-my-ip-address-programmatically
 - (NSString *)getIPAddress
 {
     NSString *address = @"error";
